@@ -37,8 +37,8 @@ const HireUsBadge = () => {
                 <defs>
                     <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
                 </defs>
-                <circle cx="50" cy="50" r="37" fill="#111" />
-                <text fill="white" fontSize="11" fontWeight="bold" letterSpacing="3">
+                <circle cx="50" cy="50" r="37" fill="transparent" />
+                <text fill="black" fontSize="11" fontWeight="bold" letterSpacing="3">
                     <textPath href="#circlePath" startOffset="0%">
                         HIRE US • HIRE US • HIRE US •
                     </textPath>
@@ -90,47 +90,67 @@ const ContactContent = () => {
                 <FadeIn delay={0.2}>
                     <form className="space-y-6">
                         <div className="grid md:grid-cols-2 gap-6">
-                            <div className="bg-gray-50 rounded-xl px-6 py-4">
-                                <label className="block text-gray-400 text-sm mb-1">First Name *</label>
-                                <input type="text" className="w-full bg-transparent border-none focus:ring-0 text-black font-medium p-0" />
+                            <div className="space-y-2">
+                                <input 
+                                  type="text" 
+                                  placeholder="First Name *" 
+                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                                />
                             </div>
-                            <div className="bg-gray-50 rounded-xl px-6 py-4">
-                                <label className="block text-gray-400 text-sm mb-1">Last Name *</label>
-                                <input type="text" className="w-full bg-transparent border-none focus:ring-0 text-black font-medium p-0" />
+                            <div className="space-y-2">
+                                <input 
+                                  type="text" 
+                                  placeholder="Last Name *" 
+                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                                />
                             </div>
                         </div>
 
                         <div className="grid md:grid-cols-2 gap-6">
-                            <div className="bg-gray-50 rounded-xl px-6 py-4">
-                                <label className="block text-gray-400 text-sm mb-1">Email *</label>
-                                <input type="email" className="w-full bg-transparent border-none focus:ring-0 text-black font-medium p-0" />
+                            <div className="space-y-2">
+                                <input 
+                                  type="email" 
+                                  placeholder="Email *" 
+                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                                />
                             </div>
-                            <div className="bg-gray-50 rounded-xl px-6 py-4">
-                                <label className="block text-gray-400 text-sm mb-1">Phone Number *</label>
-                                <input type="tel" className="w-full bg-transparent border-none focus:ring-0 text-black font-medium p-0" />
+                            <div className="space-y-2">
+                                <input 
+                                  type="tel" 
+                                  placeholder="Phone Number *" 
+                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                                />
                             </div>
                         </div>
 
-                        <div className="bg-gray-50 rounded-xl px-6 py-4">
-                            <label className="block text-gray-400 text-sm mb-1">Subject *</label>
-                            <input type="text" className="w-full bg-transparent border-none focus:ring-0 text-black font-medium p-0" />
+                        <div className="space-y-2">
+                            <input 
+                              type="text" 
+                              placeholder="Subject *" 
+                              className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                            />
                         </div>
 
-                        <div className="bg-gray-50 rounded-xl px-6 py-4">
-                            <label className="block text-gray-400 text-sm mb-1">Message *</label>
-                            <textarea rows={6} className="w-full bg-transparent border-none focus:ring-0 text-black font-medium p-0 resize-none"></textarea>
+                        <div className="space-y-2">
+                            <textarea 
+                              rows={6}
+                              placeholder="Message *" 
+                              className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors resize-none"
+                            ></textarea>
                         </div>
 
-                        <div className="flex items-center gap-4">
-                            <button type="submit" className="bg-[#04d9ff] text-black px-8 py-4 rounded-full font-bold hover:bg-[#00b8e6] transition-colors">
-                                Send Message
-                            </button>
-                            <button type="submit" className="w-14 h-14 rounded-full bg-[#111] flex items-center justify-center text-white hover:bg-[#04d9ff] hover:text-black transition-colors">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 7l-10 10M17 7H7M17 7v10" />
-                                </svg>
-                            </button>
-                        </div>
+                        <button className="flex items-center group mt-4">
+                            <span className="bg-primary text-black px-6 py-3 font-medium text-base rounded-full hover:bg-primary-hover transition-colors relative z-10" style={{ fontFamily: 'cursive' }}>
+                              Send Message
+                            </span>
+                            <span className="bg-white py-1 pl-8 pr-1 flex items-center justify-center rounded-r-full -ml-5 relative z-0 shadow-md">
+                              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+                                 <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                 </svg>
+                              </div>
+                            </span>
+                        </button>
                     </form>
                 </FadeIn>
             </div>
@@ -167,16 +187,16 @@ const ContactContent = () => {
                     {/* Stay Connected */}
                     <div>
                         <h3 className="text-xl font-bold mb-6">Stay Connected</h3>
-                        <div className="flex gap-4">
+                        <div className="flex gap-3">
                              <Link 
                                 href="#" 
-                                className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-[#111] hover:text-[#04d9ff] transition-colors group"
+                                className="w-10 h-10 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors cursor-pointer group"
                              >
-                                <Instagram className="w-6 h-6 group-hover:stroke-[#04d9ff] transition-colors" />
+                                <Instagram className="w-5 h-5 group-hover:stroke-white transition-colors" />
                              </Link>
                              <Link 
                                 href="#" 
-                                className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-[#111] hover:text-[#04d9ff] transition-colors group"
+                                className="w-10 h-10 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors cursor-pointer group"
                              >
                                 <svg className="w-5 h-5 fill-current transition-colors" viewBox="0 0 24 24">
                                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />

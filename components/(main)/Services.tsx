@@ -80,8 +80,8 @@ export default function Services() {
               
               {/* Overlay Content */}
               <div className="absolute inset-0 p-8 lg:p-12 flex flex-col justify-end">
-                <div className="flex justify-between items-end">
-                  <h3 className="text-5xl lg:text-8xl font-bold text-white tracking-tight uppercase drop-shadow-md">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-5xl lg:text-8xl font-bold text-white tracking-tight uppercase drop-shadow-md leading-none">
                     {service.title}
                   </h3>
 
