@@ -16,11 +16,20 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
+
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-[#111]/90 backdrop-blur-md' : 'bg-transparent'
+      isScrolled && !isMobileMenuOpen ? 'bg-[#111]/90 backdrop-blur-md' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center py-5">
