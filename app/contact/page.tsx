@@ -11,13 +11,13 @@ import { Instagram } from 'lucide-react';
 // Header Component
 const ContactHeader = () => {
   return (
-    <section className="bg-[#111] pt-40 pb-20 text-center font-sans">
+    <section className="bg-[#111] pt-32 lg:pt-40 pb-20 text-center font-sans">
       <FadeIn>
         <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">Contact Us</h1>
         <div className="flex items-center justify-center gap-2 text-sm font-medium">
-          <Link href="/" className="text-white hover:text-[#c4ff00] transition-colors">Home</Link>
+          <Link href="/" className="text-white hover:text-[#04d9ff] transition-colors">Home</Link>
           <span className="text-white/40">/</span>
-          <span className="text-[#c4ff00]">Contact Us</span>
+          <span className="text-[#04d9ff]">Contact Us</span>
         </div>
       </FadeIn>
     </section>
@@ -46,7 +46,7 @@ const HireUsBadge = () => {
             </svg>
         </motion.div>
          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-14 h-14 rounded-full bg-[#c4ff00] flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-[#04d9ff] flex items-center justify-center">
                  <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 7l-10 10M17 7H7M17 7v10" />
                 </svg>
@@ -67,7 +67,7 @@ const ContactContent = () => {
             <div className="max-w-2xl">
                 <FadeIn>
                     <div className="flex items-center gap-3 mb-4">
-                       <div className="w-8 h-[2px] bg-[#c4ff00]"></div>
+                       <div className="w-8 h-[2px] bg-[#04d9ff]"></div>
                        <span className="text-black/60 text-sm font-bold uppercase tracking-wider">Contact Us</span>
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-bold text-black leading-tight">
@@ -122,10 +122,10 @@ const ContactContent = () => {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <button type="submit" className="bg-[#c4ff00] text-black px-8 py-4 rounded-full font-bold hover:bg-[#b3e600] transition-colors">
+                            <button type="submit" className="bg-[#04d9ff] text-black px-8 py-4 rounded-full font-bold hover:bg-[#00b8e6] transition-colors">
                                 Send Message
                             </button>
-                            <button type="submit" className="w-14 h-14 rounded-full bg-[#111] flex items-center justify-center text-white hover:bg-[#c4ff00] hover:text-black transition-colors">
+                            <button type="submit" className="w-14 h-14 rounded-full bg-[#111] flex items-center justify-center text-white hover:bg-[#04d9ff] hover:text-black transition-colors">
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 7l-10 10M17 7H7M17 7v10" />
                                 </svg>
@@ -137,7 +137,7 @@ const ContactContent = () => {
 
             {/* Right: Info Card (5 cols) */}
             <div className="lg:col-span-5">
-                <FadeIn delay={0.4} className="bg-[#c4ff00] rounded-3xl p-8 lg:p-12 text-black space-y-10">
+                <FadeIn delay={0.4} className="bg-[#04d9ff] rounded-3xl p-8 lg:p-12 text-black space-y-10">
                     {/* Address */}
                     <div>
                         <h3 className="text-xl font-bold mb-4">Address</h3>
@@ -170,13 +170,13 @@ const ContactContent = () => {
                         <div className="flex gap-4">
                              <Link 
                                 href="#" 
-                                className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-[#111] hover:text-[#c4ff00] transition-colors group"
+                                className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-[#111] hover:text-[#04d9ff] transition-colors group"
                              >
-                                <Instagram className="w-6 h-6 group-hover:stroke-[#c4ff00] transition-colors" />
+                                <Instagram className="w-6 h-6 group-hover:stroke-[#04d9ff] transition-colors" />
                              </Link>
                              <Link 
                                 href="#" 
-                                className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-[#111] hover:text-[#c4ff00] transition-colors group"
+                                className="w-12 h-12 rounded-full border-2 border-black flex items-center justify-center hover:bg-[#111] hover:text-[#04d9ff] transition-colors group"
                              >
                                 <svg className="w-5 h-5 fill-current transition-colors" viewBox="0 0 24 24">
                                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />

@@ -10,13 +10,13 @@ import Link from 'next/link';
 // Header Component
 const BlogsHeader = () => {
   return (
-    <section className="bg-[#111] pt-40 pb-20 text-center font-sans">
+    <section className="bg-[#111] pt-32 lg:pt-40 pb-20 text-center font-sans">
       <FadeIn>
         <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">Blogs</h1>
         <div className="flex items-center justify-center gap-2 text-sm font-medium">
-          <Link href="/" className="text-white hover:text-[#c4ff00] transition-colors">Home</Link>
+          <Link href="/" className="text-white hover:text-[#04d9ff] transition-colors">Home</Link>
           <span className="text-white/40">/</span>
-          <span className="text-[#c4ff00]">Blogs</span>
+          <span className="text-[#04d9ff]">Blogs</span>
         </div>
       </FadeIn>
     </section>
@@ -85,22 +85,22 @@ const BlogList = () => {
 
           {/* Tags */}
           <div className="flex gap-4 mb-4">
-            <span className="px-4 py-1 rounded-full text-xs font-bold text-black bg-[#c4ff00]">
+            <span className="px-4 py-1 rounded-full text-xs font-bold text-black bg-[#04d9ff]">
               {blog.category}
             </span>
-            <span className="px-4 py-1 rounded-full text-xs font-bold text-black bg-[#c4ff00]">
+            <span className="px-4 py-1 rounded-full text-xs font-bold text-black bg-[#04d9ff]">
               {blog.date}
             </span>
           </div>
 
           {/* Content */}
-          <h3 className="text-2xl lg:text-3xl font-bold text-black mb-4 leading-tight group-hover:text-[#c4ff00] transition-colors">
+          <h3 className="text-2xl lg:text-3xl font-bold text-black mb-4 leading-tight group-hover:text-[#04d9ff] transition-colors">
             {blog.title}
           </h3>
           <p className="text-gray-500 mb-4 leading-relaxed">
             {blog.excerpt}
           </p>
-          <Link href="#" className="inline-block text-[#c4ff00] font-bold border-b border-[#c4ff00] hover:text-[#b3e600] hover:border-[#b3e600] transition-colors">
+          <Link href="#" className="inline-block text-[#04d9ff] font-bold border-b border-[#04d9ff] hover:text-[#00b8e6] hover:border-[#00b8e6] transition-colors">
             Read More
           </Link>
         </FadeIn>
@@ -111,7 +111,7 @@ const BlogList = () => {
         <button className="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-black">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
         </button>
-        <button className="w-10 h-10 rounded-full bg-[#c4ff00] text-black font-bold flex items-center justify-center">1</button>
+        <button className="w-10 h-10 rounded-full bg-[#04d9ff] text-black font-bold flex items-center justify-center">1</button>
         <button className="w-10 h-10 rounded-full text-gray-500 font-bold flex items-center justify-center hover:bg-gray-100">2</button>
         <button className="w-10 h-10 rounded-full text-gray-500 font-bold flex items-center justify-center hover:bg-gray-100">3</button>
         <span className="text-gray-400">...</span>
@@ -130,14 +130,14 @@ const BlogSidebar = () => {
       {/* Search */}
       <div>
         <div className="flex items-center gap-3 mb-6">
-           <div className="w-1 h-6 bg-[#c4ff00]"></div>
+           <div className="w-1 h-6 bg-[#04d9ff]"></div>
            <h3 className="text-xl font-bold text-black">Search</h3>
         </div>
         <div className="relative">
           <input 
             type="text" 
             placeholder="Search" 
-            className="w-full bg-gray-50 rounded-lg py-4 pl-6 pr-12 text-sm focus:outline-none focus:ring-1 focus:ring-[#c4ff00] text-black placeholder-gray-400"
+            className="w-full bg-gray-50 rounded-lg py-4 pl-6 pr-12 text-sm focus:outline-none focus:ring-1 focus:ring-[#04d9ff] text-black placeholder-gray-400"
           />
           <button className="absolute right-4 top-4">
             <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -150,7 +150,7 @@ const BlogSidebar = () => {
       {/* Categories */}
       <div>
         <div className="flex items-center gap-3 mb-6">
-           <div className="w-1 h-6 bg-[#c4ff00]"></div>
+           <div className="w-1 h-6 bg-[#04d9ff]"></div>
            <h3 className="text-xl font-bold text-black">Poplar Category</h3>
         </div>
         <div className="space-y-3">
@@ -158,7 +158,7 @@ const BlogSidebar = () => {
             <Link 
               key={cat} 
               href="#" 
-              className="block bg-gray-50 px-6 py-3 rounded-lg text-gray-600 text-sm hover:bg-[#c4ff00] hover:text-black transition-colors"
+              className="block bg-gray-50 px-6 py-3 rounded-lg text-gray-600 text-sm hover:bg-[#04d9ff] hover:text-black transition-colors"
             >
               {cat}
             </Link>
@@ -169,7 +169,7 @@ const BlogSidebar = () => {
       {/* Recent Post */}
       <div>
         <div className="flex items-center gap-3 mb-6">
-           <div className="w-1 h-6 bg-[#c4ff00]"></div>
+           <div className="w-1 h-6 bg-[#04d9ff]"></div>
            <h3 className="text-xl font-bold text-black">Recent Post</h3>
         </div>
         <div className="space-y-6">
@@ -183,7 +183,7 @@ const BlogSidebar = () => {
                  <Image src="/hero.png" alt="" fill className="object-cover grayscale group-hover:grayscale-0 transition-all" />
               </div>
               <div>
-                <h4 className="font-bold text-black text-sm mb-2 leading-snug group-hover:text-[#c4ff00] transition-colors">
+                <h4 className="font-bold text-black text-sm mb-2 leading-snug group-hover:text-[#04d9ff] transition-colors">
                   {post.title}
                 </h4>
                 <span className="text-xs text-gray-400">{post.date}</span>
@@ -200,9 +200,9 @@ const BlogSidebar = () => {
         <div className="relative z-10 space-y-4">
           <p className="text-white text-sm font-medium">Get A Quote</p>
           <h3 className="text-2xl font-bold text-white">
-            Looking For <span className="text-[#c4ff00]">Trusted Digital Agency?</span>
+            Looking For <span className="text-[#04d9ff]">Trusted Digital Agency?</span>
           </h3>
-          <button className="bg-[#c4ff00] text-black px-8 py-3 rounded-full font-bold text-sm hover:bg-[#b3e600] transition-colors inline-block mt-4">
+          <button className="bg-[#04d9ff] text-black px-8 py-3 rounded-full font-bold text-sm hover:bg-[#00b8e6] transition-colors inline-block mt-4">
             Hire Us Now
           </button>
         </div>
@@ -223,7 +223,7 @@ export default function BlogsPage() {
           {/* Section Title */}
           <FadeIn className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-4">
-               <div className="w-8 h-[2px] bg-[#c4ff00]"></div>
+               <div className="w-8 h-[2px] bg-[#04d9ff]"></div>
                <span className="text-black/60 text-sm font-bold uppercase tracking-wider">News & Blogs</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-black">

@@ -11,7 +11,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left: Image Section */}
-          <ScaleIn className="relative">
+          <ScaleIn className="relative order-2 lg:order-none">
             <div className="relative h-[500px] w-full rounded-2xl overflow-hidden">
               <Image
                 src="/hero.png" // Placeholder
@@ -33,7 +33,7 @@ export default function About() {
             </div>
 
             {/* Experience Badge */}
-            <div className="absolute bottom-0 left-0 bg-[#c4ff00] text-black p-6 rounded-2xl flex items-center gap-4 shadow-lg max-w-[240px]">
+            <div className="absolute bottom-0 left-0 bg-[#04d9ff] text-black p-6 rounded-2xl flex items-center gap-4 shadow-lg max-w-[240px]">
               <span className="text-6xl font-bold leading-none">18</span>
               <span className="text-sm font-bold leading-tight">
                 Years <br />
@@ -46,13 +46,13 @@ export default function About() {
           <StaggerContainer className="lg:pl-10 mt-12 lg:mt-0">
             {/* Header Label */}
             <StaggerItem className="flex items-center gap-3 mb-6">
-               <div className="w-6 h-[2px] bg-[#c4ff00]"></div>
+               <div className="w-6 h-[2px] bg-[#04d9ff]"></div>
                <span className="text-gray-400 text-sm font-medium tracking-wide uppercase">About Us</span>
             </StaggerItem>
 
             <StaggerItem>
               <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
-                We&apos;re <span className="text-[#c4ff00]">Awards Winning</span> <br />
+                We&apos;re <span className="text-[#04d9ff]">Awards Winning</span> <br />
                 Digital Agency
               </h2>
             </StaggerItem>
@@ -71,7 +71,7 @@ export default function About() {
                 'High Quality Services'
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
-                  <div className="w-6 h-6 rounded-full bg-[#c4ff00] flex items-center justify-center shrink-0">
+                  <div className="w-6 h-6 rounded-full bg-[#04d9ff] flex items-center justify-center shrink-0">
                     <svg className="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
@@ -83,20 +83,7 @@ export default function About() {
 
             {/* Bottom Actions */}
             <StaggerItem className="flex flex-col sm:flex-row items-start sm:items-center gap-8">
-              <button className="flex items-center group">
-                <span className="bg-[#c4ff00] text-black px-10 py-5 font-medium text-xl rounded-full hover:bg-[#b3e600] transition-colors relative z-10" style={{ fontFamily: 'cursive' }}>
-                  Learn More
-                </span>
-                <span className="bg-white py-1.5 pl-12 pr-2 flex items-center justify-center rounded-r-full -ml-8 relative z-0">
-                  <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-                     <svg className="w-6 h-6 text-[#c4ff00]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                     </svg>
-                  </div>
-                </span>
-              </button>
-
-              <div className="text-[#c4ff00] font-cursive text-3xl opacity-90" style={{ fontFamily: 'cursive' }}>
+              <div className="text-[#04d9ff] font-cursive text-3xl opacity-90" style={{ fontFamily: 'cursive' }}>
                 Jenny Alexander
               </div>
             </StaggerItem>

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import FadeIn from '../ui/FadeIn';
 import { StaggerContainer, StaggerItem } from '../ui/Stagger';
 
@@ -39,27 +40,27 @@ export default function Blog() {
         <FadeIn className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-6 h-[2px] bg-[#c4ff00]"></div>
+              <div className="w-6 h-[2px] bg-[#04d9ff]"></div>
               <span className="text-gray-400 text-sm font-medium tracking-wide uppercase">News & Blogs</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
               Our Latest <br />
-              <span className="text-[#c4ff00]">News & Blogs</span>
+              <span className="text-[#04d9ff]">News & Blogs</span>
             </h2>
           </div>
 
-          <button className="flex items-center group">
-            <span className="bg-[#c4ff00] text-black px-6 py-3 font-medium text-base rounded-full hover:bg-[#b3e600] transition-colors relative z-10" style={{ fontFamily: 'cursive' }}>
+          <Link href="/blogs" className="flex items-center group">
+            <span className="bg-[#04d9ff] text-black px-6 py-3 font-medium text-base rounded-full hover:bg-[#00b8e6] transition-colors relative z-10" style={{ fontFamily: 'cursive' }}>
               View All Blogs
             </span>
             <span className="bg-white py-1 pl-8 pr-1 flex items-center justify-center rounded-r-full -ml-5 relative z-0">
               <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-                <svg className="w-4 h-4 text-[#c4ff00]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-[#04d9ff]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </div>
             </span>
-          </button>
+          </Link>
         </FadeIn>
 
         {/* Blog Grid */}
@@ -76,7 +77,7 @@ export default function Blog() {
                 />
                 {/* Hover Overlay Icon */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                   <div className="w-16 h-16 bg-[#c4ff00] rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100">
+                   <div className="w-16 h-16 bg-[#04d9ff] rounded-full flex items-center justify-center transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100">
                       <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
@@ -92,14 +93,14 @@ export default function Blog() {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold mb-3 group-hover:text-[#c4ff00] transition-colors line-clamp-2">
+              <h3 className="text-xl font-bold mb-3 group-hover:text-[#04d9ff] transition-colors line-clamp-2">
                 {blog.title}
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
                 {blog.description}
               </p>
               
-              <div className="flex items-center gap-2 text-[#c4ff00] text-sm font-bold uppercase tracking-wider group-hover:gap-4 transition-all">
+              <div className="flex items-center gap-2 text-[#04d9ff] text-sm font-bold uppercase tracking-wider group-hover:gap-4 transition-all">
                 Read More
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />

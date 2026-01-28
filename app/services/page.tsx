@@ -19,7 +19,7 @@ export default function ServicesPage() {
             <p className="text-sm md:text-base tracking-widest uppercase text-white/60 font-medium">
               Created to make you stand out with
             </p>
-            <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter text-white/90">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter text-white/90">
               Our Services
             </h1>
           </FadeIn>
@@ -31,8 +31,8 @@ export default function ServicesPage() {
           {/* Column 1 */}
           <div className="flex flex-col gap-6">
             {/* Brand Strategy */}
-            <FadeIn delay={0.1} className="bg-[#1a1a1a] p-8 rounded-2xl border border-white/5 hover:border-[#c4ff00]/50 transition-colors group min-h-[200px] flex flex-col justify-between">
-              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#c4ff00] transition-colors">
+            <FadeIn delay={0.1} className="bg-[#1a1a1a] p-8 rounded-2xl border border-white/5 hover:border-[#04d9ff]/50 transition-colors group min-h-[200px] flex flex-col justify-between">
+              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#04d9ff] transition-colors">
                 <svg className="w-5 h-5 text-white group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                 </svg>
@@ -44,8 +44,8 @@ export default function ServicesPage() {
             </FadeIn>
 
             {/* Web Design */}
-            <FadeIn delay={0.2} className="bg-[#1a1a1a] p-8 rounded-2xl border border-white/5 hover:border-[#c4ff00]/50 transition-colors group min-h-[200px] flex flex-col justify-between">
-              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#c4ff00] transition-colors">
+            <FadeIn delay={0.2} className="bg-[#1a1a1a] p-8 rounded-2xl border border-white/5 hover:border-[#04d9ff]/50 transition-colors group min-h-[200px] flex flex-col justify-between">
+              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#04d9ff] transition-colors">
                 <svg className="w-5 h-5 text-white group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
@@ -92,8 +92,8 @@ export default function ServicesPage() {
             </FadeIn>
 
              {/* UI/UX */}
-             <FadeIn delay={0.6} className="bg-[#1a1a1a] p-8 rounded-2xl border border-white/5 hover:border-[#c4ff00]/50 transition-colors group min-h-[200px] flex flex-col justify-between">
-              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#c4ff00] transition-colors">
+             <FadeIn delay={0.6} className="bg-[#1a1a1a] p-8 rounded-2xl border border-white/5 hover:border-[#04d9ff]/50 transition-colors group min-h-[200px] flex flex-col justify-between">
+              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#04d9ff] transition-colors">
                 <svg className="w-5 h-5 text-white group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                 </svg>
@@ -105,8 +105,8 @@ export default function ServicesPage() {
             </FadeIn>
 
              {/* Content Creation */}
-             <FadeIn delay={0.7} className="bg-[#1a1a1a] p-8 rounded-2xl border border-white/5 hover:border-[#c4ff00]/50 transition-colors group min-h-[200px] flex flex-col justify-between">
-              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#c4ff00] transition-colors">
+             <FadeIn delay={0.7} className="bg-[#1a1a1a] p-8 rounded-2xl border border-white/5 hover:border-[#04d9ff]/50 transition-colors group min-h-[200px] flex flex-col justify-between">
+              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#04d9ff] transition-colors">
                 <svg className="w-5 h-5 text-white group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
@@ -125,7 +125,7 @@ export default function ServicesPage() {
       {/* Marquee Section */}
       <Marquee 
         items={['CREATIVE', 'STUDIO', 'CREATIVE', 'STUDIO', 'CREATIVE', 'STUDIO']} 
-        className="bg-[#c4ff00] text-black border-none" 
+        className="bg-[#04d9ff] text-black border-none" 
       />
 
       {/* Our Best Works Section */}
@@ -140,7 +140,7 @@ export default function ServicesPage() {
                <button className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
                </button>
-               <button className="w-10 h-10 rounded-full bg-[#c4ff00] text-black flex items-center justify-center hover:bg-[#b3e600] transition-colors">
+               <button className="w-10 h-10 rounded-full bg-[#04d9ff] text-black flex items-center justify-center hover:bg-[#00b8e6] transition-colors">
                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
                </button>
             </div>
@@ -177,7 +177,7 @@ export default function ServicesPage() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                />
-               <div className="absolute bottom-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-[#c4ff00] group-hover:text-black transition-colors">
+               <div className="absolute bottom-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-[#04d9ff] group-hover:text-black transition-colors">
                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                </div>
             </div>
@@ -196,7 +196,7 @@ export default function ServicesPage() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                />
-               <div className="absolute bottom-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-[#c4ff00] group-hover:text-black transition-colors">
+               <div className="absolute bottom-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-[#04d9ff] group-hover:text-black transition-colors">
                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                </div>
             </div>
@@ -219,7 +219,7 @@ export default function ServicesPage() {
 
         <div className="space-y-4">
           {/* Step 1 - Expanded */}
-          <FadeIn className="bg-[#c4ff00] rounded-3xl p-8 md:p-12 overflow-hidden relative">
+          <FadeIn className="bg-[#04d9ff] rounded-3xl p-8 md:p-12 overflow-hidden relative">
              <div className="flex flex-col md:flex-row gap-8 items-center">
                 <div className="relative w-full md:w-1/3 h-64 rounded-2xl overflow-hidden">
                    <Image 

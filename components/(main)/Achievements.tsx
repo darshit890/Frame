@@ -102,24 +102,24 @@
            variants={containerVariants} 
          > 
            {/* Vertical line */} 
-           <div className="absolute left-0 md:left-[140px] top-0 bottom-0 w-px bg-gray-200 hidden md:block" /> 
-           
-           {achievements.map((item, index) => ( 
-             <motion.div 
-               key={index} 
-               variants={itemVariants} 
-               className="group relative pb-16 last:pb-0" 
-             > 
-               <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-0"> 
-                 {/* Year */} 
-                 <div className="md:w-[140px] shrink-0"> 
-                   <span className="text-sm font-medium tracking-widest text-gray-500"> 
-                     {item.year} 
-                   </span> 
-                 </div> 
-                 
-                 {/* Timeline dot */} 
-                 <div className="hidden md:flex absolute left-[140px] -translate-x-1/2 w-3 h-3 rounded-full bg-[#c4ff00] border-2 border-[#c4ff00] group-hover:scale-125 transition-all duration-300" /> 
+          <div className="absolute left-[6px] md:left-[140px] top-0 bottom-0 w-px bg-gray-200 block" /> 
+          
+          {achievements.map((item, index) => ( 
+            <motion.div 
+              key={index} 
+              variants={itemVariants} 
+              className="group relative pb-16 last:pb-0" 
+            > 
+              <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-0 pl-8 md:pl-0"> 
+                {/* Year */} 
+                <div className="md:w-[140px] shrink-0"> 
+                  <span className="text-sm font-medium tracking-widest text-gray-500"> 
+                    {item.year} 
+                  </span> 
+                </div> 
+                
+                {/* Timeline dot */} 
+                <div className="flex absolute left-[6px] md:left-[140px] top-1 md:top-0 -translate-x-1/2 w-3 h-3 rounded-full bg-[#04d9ff] border-2 border-[#04d9ff] group-hover:scale-125 transition-all duration-300" /> 
                  
                  {/* Content Card */} 
                  <div className="flex-1 md:pl-12"> 
@@ -135,7 +135,7 @@
                        </div> 
                        
                        {/* Stats */} 
-                       <div className="shrink-0 flex items-center gap-3 lg:flex-col lg:items-center lg:gap-1 bg-[#c4ff00] rounded-lg px-4 py-3 lg:px-5 lg:py-4"> 
+                       <div className="shrink-0 flex items-center gap-3 lg:flex-col lg:items-center lg:gap-1 bg-[#04d9ff] rounded-lg px-4 py-3 lg:px-5 lg:py-4"> 
                          <span className="text-3xl lg:text-4xl font-bold text-black"> 
                            {item.stats} 
                          </span> 

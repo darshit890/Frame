@@ -56,7 +56,7 @@ export default function Process() {
         {/* Header */}
         <FadeIn className="text-center mb-20">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-6 h-[2px] bg-[#c4ff00]"></div>
+            <div className="w-6 h-[2px] bg-primary"></div>
             <span className="text-gray-500 text-sm font-medium tracking-wide uppercase">Our Work Process</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold">Our Working Process</h2>
@@ -72,7 +72,7 @@ export default function Process() {
               
               {/* Icon Circle */}
               <div className="relative w-24 h-24 mb-8 flex items-center justify-center">
-                 <div className="absolute inset-0 bg-[#c4ff00] rounded-full transform group-hover:scale-110 transition-transform duration-300"></div>
+                 <div className="absolute inset-0 bg-primary rounded-full transform group-hover:scale-110 transition-transform duration-300"></div>
                  <div className="relative z-10">
                     {step.icon}
                  </div>

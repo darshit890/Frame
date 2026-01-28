@@ -54,7 +54,7 @@ export default function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Link href={item.href} className="hover:text-[#c4ff00] transition-colors">
+                <Link href={item.href} className="hover:text-primary transition-colors">
                   {item.name}
                 </Link>
               </motion.li>
@@ -69,7 +69,7 @@ export default function Navigation() {
           >
             <Link 
               href="/contact" 
-              className="bg-[#c4ff00] text-black px-6 py-2.5 rounded-full font-bold text-sm hover:bg-[#b3e600] transition-colors"
+              className="bg-primary text-black px-6 py-2.5 rounded-full font-bold text-sm hover:bg-primary-hover transition-colors"
             >
               Let&apos;s Talk
             </Link>
@@ -108,11 +108,10 @@ export default function Navigation() {
             <div className="flex flex-col items-center justify-center h-full space-y-8">
               {[
                 { name: 'Home', href: '/' },
-                { name: 'Services', href: '/#services' },
+                { name: 'Services', href: '/services' },
                 { name: 'Projects', href: '/projects' },
                 { name: 'Blogs', href: '/blogs' },
-                { name: 'About Us', href: '/#about' },
-                { name: 'Contact Us', href: '/#contact' },
+                { name: 'Contact Us', href: '/contact' },
               ].map((item, index) => (
                 <motion.div
                   key={item.name}
@@ -123,7 +122,7 @@ export default function Navigation() {
                   <Link 
                     href={item.href} 
                     onClick={toggleMobileMenu} 
-                    className="text-2xl font-bold text-white hover:text-[#c4ff00]"
+                    className="text-2xl font-bold text-white hover:text-primary"
                   >
                     {item.name}
                   </Link>
@@ -136,9 +135,9 @@ export default function Navigation() {
                 transition={{ delay: 0.8 }}
               >
                 <Link 
-                  href="#contact" 
+                  href="/contact" 
                   onClick={toggleMobileMenu}
-                  className="bg-[#c4ff00] text-black px-8 py-3 rounded-full font-bold text-lg hover:bg-[#b3e600] transition-colors mt-8 inline-block"
+                  className="bg-primary text-black px-8 py-3 rounded-full font-bold text-lg hover:bg-primary-hover transition-colors mt-8 inline-block"
                 >
                   Let&apos;s Talk
                 </Link>

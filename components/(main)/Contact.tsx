@@ -14,19 +14,19 @@ export default function Contact() {
         <div className="flex justify-between items-start mb-16">
           <FadeIn className="max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
-               <div className="w-6 h-[2px] bg-[#c4ff00]"></div>
+               <div className="w-6 h-[2px] bg-primary"></div>
                <span className="text-gray-400 text-sm font-medium tracking-wide uppercase">Contact Us</span>
             </div>
             <h2 className="text-4xl lg:text-6xl font-bold leading-tight">
               Join Us in Creating <br />
-              <span className="text-[#c4ff00]">Something Great</span>
+              <span className="text-primary">Something Great</span>
             </h2>
           </FadeIn>
 
           {/* Floating Badge (Top Right) */}
           <FadeIn delay={0.3} className="hidden lg:flex relative w-32 h-32 items-center justify-center">
-            <div className="absolute inset-0 bg-[#c4ff00] rounded-full opacity-20 animate-pulse"></div>
-            <div className="relative w-24 h-24 bg-[#c4ff00] rounded-full flex items-center justify-center animate-spin-slow">
+            <div className="absolute inset-0 bg-primary rounded-full opacity-20 animate-pulse"></div>
+            <div className="relative w-24 h-24 bg-primary rounded-full flex items-center justify-center animate-spin-slow">
                <svg viewBox="0 0 100 100" className="w-full h-full p-2">
                   <path id="curve-contact" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
                   <text fontSize="14" fontWeight="bold" fill="black">
@@ -53,14 +53,14 @@ export default function Contact() {
                 <input 
                   type="text" 
                   placeholder="First Name *" 
-                  className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#c4ff00] transition-colors"
+                  className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
               <div className="space-y-2">
                 <input 
                   type="text" 
                   placeholder="Last Name *" 
-                  className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#c4ff00] transition-colors"
+                  className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
             </StaggerItem>
@@ -70,14 +70,14 @@ export default function Contact() {
                 <input 
                   type="email" 
                   placeholder="Email *" 
-                  className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#c4ff00] transition-colors"
+                  className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
               <div className="space-y-2">
                 <input 
                   type="tel" 
                   placeholder="Phone Number *" 
-                  className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#c4ff00] transition-colors"
+                  className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
                 />
               </div>
             </StaggerItem>
@@ -86,7 +86,7 @@ export default function Contact() {
               <input 
                 type="text" 
                 placeholder="Subject *" 
-                className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#c4ff00] transition-colors"
+                className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
               />
             </StaggerItem>
 
@@ -94,18 +94,18 @@ export default function Contact() {
               <textarea 
                 rows={6}
                 placeholder="Message *" 
-                className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#c4ff00] transition-colors resize-none"
+                className="w-full bg-[#1A1A1A] border border-white/5 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors resize-none"
               ></textarea>
             </StaggerItem>
 
             <StaggerItem>
               <button className="flex items-center group mt-4">
-                <span className="bg-[#c4ff00] text-black px-6 py-3 font-medium text-base rounded-full hover:bg-[#b3e600] transition-colors relative z-10" style={{ fontFamily: 'cursive' }}>
+                <span className="bg-primary text-black px-6 py-3 font-medium text-base rounded-full hover:bg-primary-hover transition-colors relative z-10" style={{ fontFamily: 'cursive' }}>
                   Send Message
                 </span>
                 <span className="bg-white py-1 pl-8 pr-1 flex items-center justify-center rounded-r-full -ml-5 relative z-0">
                   <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-                     <svg className="w-4 h-4 text-[#c4ff00]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                     <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                      </svg>
                   </div>
@@ -116,7 +116,7 @@ export default function Contact() {
 
           {/* Right: Info Card (1 col wide) */}
           <ScaleIn delay={0.2} className="h-full">
-            <div className="bg-[#c4ff00] rounded-4xl p-6 lg:p-10 text-black flex flex-col justify-between h-full min-h-0 lg:min-h-[500px]">
+            <div className="bg-primary rounded-4xl p-6 lg:p-10 text-black flex flex-col justify-between h-full min-h-0 lg:min-h-[500px]">
               <div className="space-y-10">
                 
                 {/* Address */}

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import FadeIn from '@/components/ui/FadeIn';
 import { StaggerContainer, StaggerItem } from '@/components/ui/Stagger';
 
@@ -27,30 +28,30 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}
-        <FadeIn className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+        <FadeIn className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-               <div className="w-6 h-[2px] bg-[#c4ff00]"></div>
+               <div className="w-6 h-[2px] bg-[#04d9ff]"></div>
                <span className="text-gray-400 text-sm font-medium tracking-wide uppercase">Our Projects</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
               Our Recent <br />
-              <span className="text-[#c4ff00]">Work Portfolio</span>
+              <span className="text-[#04d9ff]">Work Portfolio</span>
             </h2>
           </div>
 
-          <button className="flex items-center group">
-            <span className="bg-[#c4ff00] text-black px-6 py-3 font-medium text-base rounded-full hover:bg-[#b3e600] transition-colors relative z-10" style={{ fontFamily: 'cursive' }}>
+          <Link href="/projects" className="flex items-center group h-12">
+            <span className="bg-[#04d9ff] text-black px-6 h-full flex items-center font-medium text-base rounded-full hover:bg-[#00b8e6] transition-colors relative z-10 whitespace-nowrap" style={{ fontFamily: 'cursive' }}>
               View All Projects
             </span>
-            <span className="bg-white py-1 pl-8 pr-1 flex items-center justify-center rounded-r-full -ml-4 relative z-0">
+            <span className="bg-white h-full pl-8 pr-1 flex items-center justify-center rounded-r-full -ml-4 relative z-0">
               <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-                 <svg className="w-4 h-4 text-[#c4ff00]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                 <svg className="w-4 h-4 text-[#04d9ff]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                  </svg>
               </div>
             </span>
-          </button>
+          </Link>
         </FadeIn>
 
         {/* Projects Grid */}
@@ -87,8 +88,8 @@ export default function Portfolio() {
                 
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-all ${
                   project.active 
-                    ? 'bg-[#c4ff00] text-black rotate-45' 
-                    : 'bg-[#222] text-white group-hover:bg-[#c4ff00] group-hover:text-black group-hover:rotate-45'
+                    ? 'bg-[#04d9ff] text-black rotate-45' 
+                    : 'bg-[#222] text-white group-hover:bg-[#04d9ff] group-hover:text-black group-hover:rotate-45'
                 }`}>
                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 19L19 5m0 0v14m0-14H5" />

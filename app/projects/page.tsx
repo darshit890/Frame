@@ -11,13 +11,13 @@ import Link from 'next/link';
 // New Projects Header Component
 const ProjectsHeader = () => {
   return (
-    <section className="bg-[#111] pt-40 pb-20 text-center font-sans">
+    <section className="bg-[#111] pt-32 lg:pt-40 pb-20 text-center font-sans">
       <FadeIn>
         <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">Projects</h1>
         <div className="flex items-center justify-center gap-2 text-sm font-medium">
-          <Link href="/" className="text-white hover:text-[#c4ff00] transition-colors">Home</Link>
+          <Link href="/" className="text-white hover:text-[#04d9ff] transition-colors">Home</Link>
           <span className="text-white/40">/</span>
-          <span className="text-[#c4ff00]">Our Latest Projects</span>
+          <span className="text-[#04d9ff]">Our Latest Projects</span>
         </div>
       </FadeIn>
     </section>
@@ -68,7 +68,7 @@ const ProjectsGrid = () => {
         {/* Section Header */}
         <FadeIn className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
-             <div className="w-8 h-[2px] bg-[#c4ff00]"></div>
+             <div className="w-8 h-[2px] bg-[#04d9ff]"></div>
              <span className="text-black/60 text-sm font-bold uppercase tracking-wider">Our Projects</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-black">
@@ -96,7 +96,7 @@ const ProjectsGrid = () => {
                 {project.tags.map((tag, i) => (
                   <span 
                     key={i} 
-                    className="px-4 py-1.5 rounded-full text-xs font-bold text-black bg-[#c4ff00]"
+                    className="px-4 py-1.5 rounded-full text-xs font-bold text-black bg-[#04d9ff]"
                   >
                     {tag}
                   </span>
@@ -111,8 +111,8 @@ const ProjectsGrid = () => {
                 
                 <button className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
                   project.active
-                    ? 'bg-[#c4ff00] text-black rotate-45'
-                    : 'bg-black text-white hover:bg-[#c4ff00] hover:text-black hover:rotate-45'
+                    ? 'bg-[#04d9ff] text-black rotate-45'
+                    : 'bg-black text-white hover:bg-[#04d9ff] hover:text-black hover:rotate-45'
                 }`}>
                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 19L19 5m0 0v14m0-14H5" />

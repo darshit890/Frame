@@ -44,7 +44,7 @@ export default function FAQ() {
         {/* Header */}
         <FadeIn className="flex flex-col items-center mb-16 text-center">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-6 h-[2px] bg-[#c4ff00]"></div>
+            <div className="w-6 h-[2px] bg-primary"></div>
             <span className="text-gray-500 text-sm font-medium tracking-wide uppercase">FAQs</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
@@ -59,7 +59,7 @@ export default function FAQ() {
               key={index} 
               className={`rounded-2xl overflow-hidden transition-all duration-300 ${
                 activeIndex === index 
-                  ? 'bg-[#c4ff00] shadow-lg' 
+                  ? 'bg-primary shadow-lg' 
                   : 'bg-[#f5f5f5] hover:bg-gray-200'
               }`}
             >

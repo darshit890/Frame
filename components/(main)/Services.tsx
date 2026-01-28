@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import FadeIn from '@/components/ui/FadeIn';
 import ScaleIn from '@/components/ui/ScaleIn';
 import { useState } from 'react';
@@ -35,7 +36,7 @@ export default function Services() {
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-8">
           <FadeIn direction="right">
-            <h2 className="text-5xl lg:text-7xl font-bold tracking-tight leading-[0.9]">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-[0.9]">
               OurCompany <br />
               Service!
             </h2>
@@ -102,11 +103,11 @@ export default function Services() {
                         </div>
                      )}
                      
-                     <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+                     <Link href="/services" className="w-12 h-12 lg:w-16 lg:h-16 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
                         <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                     </div>
+                     </Link>
                   </div>
                 </div>
               </div>
