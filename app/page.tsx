@@ -11,8 +11,14 @@ import Testimonials from "@/components/(main)/Testimonials";
 import Blog from "@/components/(main)/Blog";
 import FAQ from "@/components/(main)/FAQ";
 import Footer from "@/components/(main)/Footer";
+import { client } from "@/sanity/lib/client";
+import { recentPostsQuery } from "@/sanity/lib/queries";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const posts = await client.fetch(recentPostsQuery);
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -27,7 +33,7 @@ export default function Home() {
       <Contact />
       <Testimonials />
       <Marquee />
-      <Blog />
+      <Blog posts={posts} />
       <FAQ />
       <Marquee />
       <Footer />
