@@ -49,9 +49,7 @@ export default function ServicesClient({ services = [], header }: ServicesClient
             </h2>
           </FadeIn>
           
-          <div className="hidden lg:flex items-center justify-center w-12 h-12 bg-secondary rounded-full">
-            <div className="w-2 h-2 bg-primary rounded-full"></div>
-          </div>
+          
 
           <FadeIn direction="left">
             <p className="max-w-md text-sm font-medium leading-relaxed text-right lg:text-left text-black/70">

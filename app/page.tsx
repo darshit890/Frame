@@ -11,6 +11,7 @@ import Footer from "@/components/(main)/Footer";
 import { client } from "@/sanity/lib/client";
 import { recentPostsQuery } from "@/sanity/lib/queries";
 import PortfolioDownload from "@/components/PortfolioTemorary";
+import ProcessClient from "@/components/(main)/process-client";
 
 export const revalidate = 60;
 
@@ -21,12 +22,13 @@ export default async function Home() {
     <main className="min-h-screen">
       <Hero />
       <Services />
-      <About />
-      <Process />
       <Marquee />
       <PortfolioDownload />
       <Marquee />
+      <ProcessClient />
+      <Marquee />
       <Contact />
+      <Marquee />
       <Testimonials />
       <Marquee />
       <Blog posts={posts} />

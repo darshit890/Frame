@@ -105,7 +105,7 @@ export default function BlogSidebar({
       )}
 
       {/* Recent Post */}
-      <div>
+      <div className="hidden lg:block">
         <div className="flex items-center gap-3 mb-6">
            <div className="w-1 h-6 bg-primary"></div>
            <h3 className="text-xl font-bold text-black">Recent Posts</h3>
@@ -143,7 +143,7 @@ export default function BlogSidebar({
       </div>
 
       {/* CTA Widget */}
-      <div className="relative rounded-2xl overflow-hidden h-[400px] flex flex-col justify-end p-8 text-center">
+      <div className="relative rounded-2xl overflow-hidden h-[400px] hidden lg:flex flex-col justify-end p-8 text-center">
         <Image src="/hero.png" alt="Team" fill className="object-cover grayscale" />
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 space-y-4">

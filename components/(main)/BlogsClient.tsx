@@ -80,11 +80,11 @@ export default function BlogsClient({ posts, categories }: BlogsClientProps) {
 
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-20">
           {/* Main Content (2 cols) */}
-          <div className="lg:col-span-2 space-y-12">
+          <div className="lg:col-span-2 space-y-12 order-2 lg:order-1">
             {paginatedPosts.length > 0 ? (
               paginatedPosts.map((post) => (
-                <FadeIn key={post._id} className="group h-full">
-                  <Link href={`/blog/${post.slug.current}`} className="block h-full relative z-10">
+                <div key={post._id} className="group">
+                  <Link href={`/blog/${post.slug.current}`} className="block relative z-10">
                     {/* Image */}
                     <div className="relative h-[300px] lg:h-[400px] w-full rounded-2xl overflow-hidden mb-8 bg-gray-200">
                       {post.mainImage?.asset?.url ? (
@@ -131,7 +131,7 @@ export default function BlogsClient({ posts, categories }: BlogsClientProps) {
                       Read More
                     </span>
                   </Link>
-                </FadeIn>
+                </div>
               ))
             ) : (
               <div className="text-center py-10">
@@ -182,7 +182,7 @@ export default function BlogsClient({ posts, categories }: BlogsClientProps) {
           </div>
           
           {/* Sidebar (1 col) */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 order-1 lg:order-2">
             <BlogSidebar 
               categories={categories}
               recentPosts={recentPosts}

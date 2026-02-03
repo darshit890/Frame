@@ -42,7 +42,7 @@ const ptComponents: PortableTextComponents = {
 // Header Component
 const BlogHeader = ({ title }: { title: string }) => {
   return (
-    <section className="bg-background pt-32 lg:pt-40 pb-20 text-center font-sans relative overflow-hidden">
+    <section className="bg-background pt-24 lg:pt-40 pb-12 lg:pb-20 text-center font-sans relative overflow-hidden">
       <BackgroundEffect />
       <FadeIn>
         <div className="max-w-4xl mx-auto px-6">
@@ -94,57 +94,55 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <BlogHeader title={post.title} />
       <Marquee />
       
-      <section className="py-24">
+      <section className="py-12 lg:py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-20">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <FadeIn>
-                {/* Main Image */}
-                <div className="relative h-[300px] lg:h-[500px] w-full rounded-2xl overflow-hidden mb-10 bg-gray-200">
-                  {post.mainImage?.asset?.url ? (
-                    <Image
-                      src={post.mainImage.asset.url}
-                      alt={post.mainImage.alt || post.title}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gray-300 text-gray-500">
-                      No Image
-                    </div>
-                  )}
-                </div>
+              {/* Main Image */}
+              <div className="relative h-[250px] lg:h-[500px] w-full rounded-2xl overflow-hidden mb-10 bg-gray-200">
+                {post.mainImage?.asset?.url ? (
+                  <Image
+                    src={post.mainImage.asset.url}
+                    alt={post.mainImage.alt || post.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-300 text-gray-500">
+                    No Image
+                  </div>
+                )}
+              </div>
 
-                {/* Meta Data */}
-                <div className="flex flex-wrap items-center gap-4 mb-8">
-                  <span className="bg-primary text-black text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
-                    {post.categories?.[0]?.title || 'Blog'}
-                  </span>
-                  <span className="text-gray-500 text-sm font-medium flex items-center gap-2">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                    {new Date(post.publishedAt).toLocaleDateString('en-GB', {
-                      day: 'numeric',
-                      month: 'long',
-                      year: 'numeric'
-                    })}
-                  </span>
-                </div>
+              {/* Meta Data */}
+              <div className="flex flex-wrap items-center gap-4 mb-8">
+                <span className="bg-primary text-black text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                  {post.categories?.[0]?.title || 'Blog'}
+                </span>
+                <span className="text-gray-500 text-sm font-medium flex items-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                  {new Date(post.publishedAt).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                  })}
+                </span>
+              </div>
 
-                {/* Body Content */}
-                <div className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-primary">
-                  {post.body ? (
-                    <PortableText value={post.body} components={ptComponents} />
-                  ) : (
-                    <p className="text-gray-500 italic">No content available for this post.</p>
-                  )}
-                </div>
-              </FadeIn>
+              {/* Body Content */}
+              <div className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-primary">
+                {post.body ? (
+                  <PortableText value={post.body} components={ptComponents} />
+                ) : (
+                  <p className="text-gray-500 italic">No content available for this post.</p>
+                )}
+              </div>
             </div>
 
             {/* Sidebar */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 order-1 lg:order-2">
               <BlogSidebar 
                 categories={[]} // Hide categories
                 recentPosts={recentPosts}
