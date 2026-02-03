@@ -143,18 +143,6 @@ export const faqQuery = groq`*[_type == "faq"][0] {
   }
 }`
 
-export const achievementsQuery = groq`*[_type == "achievements"][0] {
-  subheading,
-  heading,
-  achievements[] {
-    year,
-    title,
-    description,
-    stats,
-    statsLabel
-  }
-}`
-
 export const postsQuery = groq`*[_type == "post"] | order(publishedAt desc) {
   _id,
   title,

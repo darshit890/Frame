@@ -1,11 +1,8 @@
 import Hero from "@/components/(main)/Hero";
-import Navbar from "@/components/navbar";
 import Services from "@/components/(main)/Services";
 import About from "@/components/(main)/About";
 import Process from "@/components/(main)/Process";
 import Marquee from "@/components/(main)/Marquee";
-import Portfolio from "@/components/(main)/Portfolio";
-import Achievements from "@/components/(main)/Achievements";
 import Contact from "@/components/(main)/Contact";
 import Testimonials from "@/components/(main)/Testimonials";
 import Blog from "@/components/(main)/Blog";
@@ -22,7 +19,6 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen">
-      <Navbar />
       <Hero />
       <Services />
       <About />
@@ -30,7 +26,6 @@ export default async function Home() {
       <Marquee />
       <PortfolioDownload />
       <Marquee />
-      <Achievements />
       <Contact />
       <Testimonials />
       <Marquee />

@@ -1,6 +1,5 @@
 'use client';
 
-import Navbar from '@/components/navbar';
 import Footer from '@/components/(main)/Footer';
 import Marquee from '@/components/(main)/Marquee';
 import FadeIn from '@/components/ui/FadeIn';
@@ -135,7 +134,7 @@ const ContactContent = () => {
                                   placeholder="First Name *" 
                                   required
                                   disabled={isPending}
-                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
+                                  className="w-full bg-gray-200 border border-gray-300 rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors disabled:opacity-50"
                                 />
                             </div>
                             <div className="space-y-2">
@@ -145,7 +144,7 @@ const ContactContent = () => {
                                   placeholder="Last Name *" 
                                   required
                                   disabled={isPending}
-                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
+                                  className="w-full bg-gray-200 border border-gray-300 rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors disabled:opacity-50"
                                 />
                             </div>
                         </div>
@@ -158,7 +157,7 @@ const ContactContent = () => {
                                   placeholder="Email *" 
                                   required
                                   disabled={isPending}
-                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
+                                  className="w-full bg-gray-200 border border-gray-300 rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors disabled:opacity-50"
                                 />
                             </div>
                             <div className="space-y-2">
@@ -168,7 +167,7 @@ const ContactContent = () => {
                                   placeholder="Phone Number *" 
                                   required
                                   disabled={isPending}
-                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
+                                  className="w-full bg-gray-200 border border-gray-300 rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors disabled:opacity-50"
                                 />
                             </div>
                         </div>
@@ -180,7 +179,7 @@ const ContactContent = () => {
                               placeholder="Subject *" 
                               required
                               disabled={isPending}
-                              className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
+                              className="w-full bg-gray-200 border border-gray-300 rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors disabled:opacity-50"
                             />
                         </div>
 
@@ -191,7 +190,7 @@ const ContactContent = () => {
                               placeholder="Message *" 
                               required
                               disabled={isPending}
-                              className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors resize-none disabled:opacity-50"
+                              className="w-full bg-gray-200 border border-gray-300 rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-colors resize-none disabled:opacity-50"
                             ></textarea>
                         </div>
 
@@ -222,15 +221,6 @@ const ContactContent = () => {
             {/* Right: Info Card (5 cols) */}
             <div className="lg:col-span-5">
                 <FadeIn delay={0.4} className="bg-primary rounded-3xl p-8 lg:p-12 text-black space-y-10">
-                    {/* Address */}
-                    <div>
-                        <h3 className="text-xl font-bold mb-4">Address</h3>
-                        <p className="text-black/70 leading-relaxed font-medium">
-                            4517 Washington Ave. Manchester,<br />
-                            Kentucky 39495
-                        </p>
-                    </div>
-
                     {/* Contact */}
                     <div>
                         <h3 className="text-xl font-bold mb-4">Contact</h3>
@@ -280,7 +270,6 @@ const ContactContent = () => {
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
       <ContactHeader />
       <ContactContent />
       <Marquee />

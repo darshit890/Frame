@@ -29,7 +29,6 @@ const portfolioCategories: PortfolioCategory[] = [
       "Web Applications",
       "Mobile Development",
       "Cloud Architecture",
-      "API Design",
     ],
   },
   {
@@ -165,7 +164,11 @@ function PortfolioCard({
     >
       {/* Glowing border effect */}
       <div
-        className={`absolute -inset-px rounded-3xl bg-linear-to-r from-primary via-accent to-primary opacity-0 blur-sm transition-all duration-500 ${isHovered ? "opacity-75" : ""}`}
+        className={`absolute -inset-px rounded-3xl bg-linear-to-r from-primary via-accent to-primary opacity-0 blur-2xl transition-all duration-500 ${isHovered ? "opacity-100" : ""}`}
+      />
+      {/* Stronger Bottom Glow */}
+      <div
+        className={`absolute -bottom-10 left-0 right-0 mx-auto h-32 w-[90%] bg-primary/40 blur-3xl transition-all duration-500 ${isHovered ? "opacity-100" : "opacity-0"}`}
       />
 
       <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 transition-all duration-500 hover:border-primary/50 lg:p-10">
@@ -357,17 +360,6 @@ export default function PortfolioDownload({
               <div
                 className={`absolute -inset-1 rounded-full bg-linear-to-r from-primary via-accent to-primary opacity-0 blur transition-all duration-500 ${isMainHovered ? "opacity-75" : ""}`}
               />
-
-              <div className="relative flex items-center gap-4 rounded-full border border-primary/30 bg-card px-8 py-4 transition-all duration-300 hover:border-primary hover:bg-primary/10">
-                <span className="text-base font-semibold text-foreground lg:text-lg">
-                  Download Complete Portfolio
-                </span>
-                <div
-                  className={`flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 ${isMainHovered ? "bg-primary text-primary-foreground" : "bg-secondary text-foreground"}`}
-                >
-                  <DownloadIcon className="h-5 w-5" />
-                </div>
-              </div>
 
               {/* Shimmer effect */}
               <div

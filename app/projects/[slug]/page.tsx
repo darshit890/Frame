@@ -1,6 +1,5 @@
 import { client } from '@/sanity/lib/client';
 import { projectQuery, projectsQuery } from '@/sanity/lib/queries';
-import Navbar from '@/components/navbar';
 import Footer from '@/components/(main)/Footer';
 import Marquee from '@/components/(main)/Marquee';
 import FadeIn from '@/components/ui/FadeIn';
@@ -69,7 +68,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="min-h-screen bg-white font-sans">
-      <Navbar />
       <ProjectHeader title={project.title} category={project.categories?.[0]?.title} />
       <Marquee />
       

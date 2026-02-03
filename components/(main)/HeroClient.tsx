@@ -129,34 +129,6 @@ const HeroClient = ({
                      />
                  </div>
                  <div className="absolute inset-3 rounded-[24px] bg-black/20 pointer-events-none"></div>
-                 
-                 {/* Review Badge */}
-                 <FadeIn delay={0.8} direction="up" className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20">
-                    <div className="flex items-center rounded-xl bg-primary pl-2 pr-6 py-3">
-                       <div className="flex items-center text-white rounded-full px-3 py-2 mr-4">
-                          <div className="flex -space-x-5 items-center">
-                             {[1, 2, 3].map(i => (
-                               <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden relative">
-                                  <Image
-                                    src="/profile.png"
-                                    alt={`Profile ${i}`}
-                                    fill
-                                    className="object-cover grayscale"
-                                  />
-                               </div>
-                             ))}
-                             <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden relative flex items-center justify-center bg-black z-10">
-                                <span className="text-primary text-xl font-bold">+</span>
-                             </div>
-                          </div>
-                       </div>
-                       <div className="flex flex-col leading-tight">
-                          <span className="text-black font-extrabold text-base">4.9 Star</span>
-                          <span className="text-black/70 text-xs font-semibold uppercase tracking-wide">Reviews</span>
-                       </div>
-                    </div>
-                 </FadeIn>
-                 
                  {/* Decorative Stars */}
                  <div className="absolute top-1/2 -translate-y-1/2 -left-6 text-primary">
                      <svg className="w-14 h-14" viewBox="0 0 24 24" fill="currentColor">

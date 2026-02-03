@@ -115,7 +115,6 @@ const ProjectsGrid = ({ projects }: { projects: Project[] }) => {
 export default function ProjectsClient({ projects }: ProjectsClientProps) {
   return (
     <main className="min-h-screen bg-background">
-      <Navbar />
       <ProjectsHeader />
       <Marquee />
       <ProjectsGrid projects={projects} />

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Navbar from '@/components/navbar';
 import Footer from '@/components/(main)/Footer';
 import ServicesHero from './services/ServicesHero';
 import ServicesBentoGrid from './services/ServicesBentoGrid';
@@ -10,6 +9,7 @@ import FeaturedProjects, { FeaturedProject } from './services/FeaturedProjects';
 import WorkProcess, { WorkProcessStep } from './services/WorkProcess';
 import { ServiceItem } from './services/ServiceCard';
 import BackgroundEffect from '@/components/ui/BackgroundEffect';
+import PortfolioDownload from '../PortfolioTemorary';
 
 interface ServicesPageClientProps {
   pageData?: {
@@ -32,7 +32,6 @@ export default function ServicesPageClient({ pageData, workProcessData }: Servic
   return (
     <main className="min-h-screen bg-background text-foreground relative overflow-hidden">
       <BackgroundEffect />
-      <Navbar />
       
       <section className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
         <ServicesHero 
@@ -47,8 +46,7 @@ export default function ServicesPageClient({ pageData, workProcessData }: Servic
       </section>
 
       <ServicesMarquee items={pageData?.marqueeItems} />
-
-      <FeaturedProjects projects={pageData?.featuredProjects} />
+      <PortfolioDownload />
 
       <WorkProcess 
         subheading={workProcessData?.subheading} 

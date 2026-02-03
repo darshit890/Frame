@@ -91,7 +91,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <main className="min-h-screen bg-white font-sans">
-      <Navbar />
       <BlogHeader title={post.title} />
       <Marquee />
       

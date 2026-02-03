@@ -14,7 +14,6 @@ export const structure: StructureResolver = (S) =>
             .items([
               S.documentTypeListItem('hero').title('Hero Section'),
               S.documentTypeListItem('about').title('About Section'),
-              S.documentTypeListItem('achievements').title('Achievements'),
               S.documentTypeListItem('portfolio').title('Portfolio'),
               S.documentTypeListItem('testimonials').title('Testimonials'),
               S.documentTypeListItem('faq').title('FAQ'),
@@ -58,7 +57,7 @@ export const structure: StructureResolver = (S) =>
       ...S.documentTypeListItems().filter(
         (item) => item.getId() && ![
           // Home
-          'hero', 'about', 'achievements', 'portfolio', 'testimonials', 'faq',
+          'hero', 'about', 'portfolio', 'testimonials', 'faq',
           // Services
           'servicesPage', 'workProcess', 'service', 'servicesHeader',
           // Blog

@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import { motion, LayoutGroup } from 'framer-motion';
 import FadeIn from '@/components/ui/FadeIn';
 import Image from 'next/image';
 
@@ -18,6 +19,8 @@ interface WorkProcessProps {
 }
 
 export default function WorkProcess({ subheading, heading, steps }: WorkProcessProps) {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section className="py-20 px-6 max-w-7xl mx-auto border-t border-border">
       <FadeIn className="flex justify-between items-start mb-16">
@@ -30,54 +33,96 @@ export default function WorkProcess({ subheading, heading, steps }: WorkProcessP
       </FadeIn>
 
       <div className="space-y-4">
-        {steps?.map((step, index) => {
-          // First step is expanded view
-          if (index === 0) {
-               return (
-                  <FadeIn key={index} className="bg-primary rounded-3xl p-8 md:p-12 overflow-hidden relative">
-                      <div className="flex flex-col md:flex-row gap-8 items-center">
-                          <div className="relative w-full md:w-1/3 h-64 rounded-2xl overflow-hidden bg-black/10">
-                              {step.imageUrl ? (
-                                <Image 
-                                    src={step.imageUrl} 
-                                    alt={step.title || 'Step Image'} 
-                                    fill
-                                    className="object-cover"
-                                />
-                              ) : (
-                                // Fallback or debug info if image is missing but expected
-                                <div className="absolute inset-0 flex items-center justify-center text-black/20 font-bold">
-                                   
-                                </div>
-                              )}
-                          </div>
-                          <div className="flex-1 text-center md:text-left">
-                              <h3 className="text-4xl md:text-6xl font-black text-black/20 uppercase mb-4">0{index + 1}</h3>
-                              <h4 className="text-3xl md:text-5xl font-bold text-black uppercase mb-6">{step.title}</h4>
-                              <p className="text-black/80 leading-relaxed max-w-md">
-                                  {step.description}
-                              </p>
-                          </div>
-                      </div>
-                  </FadeIn>
-               )
-          }
+        <LayoutGroup>
+          {steps?.map((step, index) => {
+            const isExpanded = hoveredIndex === index;
 
-          // Other steps
-          return (
-              <FadeIn key={index} delay={0.1 * index} className="group bg-card rounded-3xl p-8 md:p-12 hover:bg-muted transition-colors cursor-pointer border border-border">
+            return (
+              <motion.div
+                key={index}
+                layout
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className={`rounded-3xl p-8 md:p-12 overflow-hidden cursor-pointer border ${
+                  isExpanded 
+                    ? 'bg-primary border-primary relative' 
+                    : 'bg-card border-border hover:bg-muted'
+                }`}
+              >
+                {isExpanded ? (
+                  <div className="flex flex-col md:flex-row gap-8 items-center">
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.4, delay: 0.1 }}
+                        className="relative w-full md:w-1/3 h-64 rounded-2xl overflow-hidden bg-black/10"
+                      >
+                          {step.imageUrl ? (
+                            <Image 
+                                src={step.imageUrl} 
+                                alt={step.title || 'Step Image'} 
+                                fill
+                                className="object-cover"
+                            />
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center text-black/20 font-bold">
+                               
+                            </div>
+                          )}
+                      </motion.div>
+                      <div className="flex-1 text-center md:text-left">
+                          <motion.h3 
+                            layoutId={`step-number-${index}`}
+                            className="text-4xl md:text-6xl font-black text-black/20 uppercase mb-4"
+                          >
+                            0{index + 1}
+                          </motion.h3>
+                          <motion.h4 
+                            layoutId={`step-title-${index}`}
+                            className="text-3xl md:text-5xl font-bold text-black uppercase mb-6"
+                          >
+                            {step.title}
+                          </motion.h4>
+                          <motion.p 
+                            layoutId={`step-desc-${index}`}
+                            className="text-black/80 leading-relaxed max-w-md"
+                          >
+                              {step.description}
+                          </motion.p>
+                      </div>
+                  </div>
+                ) : (
                   <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-                  <div className="flex items-center gap-8 w-full md:w-1/3">
-                      <span className="text-xl font-bold text-muted-foreground">0{index + 1}</span>
-                      <h4 className="text-3xl font-bold text-foreground uppercase">{step.title}</h4>
+                      <div className="flex items-center gap-8 w-full md:w-1/3">
+                          <motion.span 
+                            layoutId={`step-number-${index}`}
+                            className="text-xl font-bold text-muted-foreground"
+                          >
+                            0{index + 1}
+                          </motion.span>
+                          <motion.h4 
+                            layoutId={`step-title-${index}`}
+                            className="text-3xl font-bold text-foreground uppercase"
+                          >
+                            {step.title}
+                          </motion.h4>
+                      </div>
+                      <motion.p 
+                        layoutId={`step-desc-${index}`}
+                        className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-lg md:text-right"
+                      >
+                          {step.description}
+                      </motion.p>
                   </div>
-                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-lg md:text-right">
-                      {step.description}
-                  </p>
-                  </div>
-              </FadeIn>
-          )
-        })}
+                )}
+              </motion.div>
+            );
+          })}
+        </LayoutGroup>
       </div>
     </section>
   );

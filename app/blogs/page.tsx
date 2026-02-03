@@ -1,7 +1,6 @@
 import { client } from '@/sanity/lib/client';
 import { postsQuery, categoriesQuery } from '@/sanity/lib/queries';
 import BlogsClient from '@/components/(main)/BlogsClient';
-import Navbar from '@/components/navbar';
 import Footer from '@/components/(main)/Footer';
 import Marquee from '@/components/(main)/Marquee';
 import FadeIn from '@/components/ui/FadeIn';
@@ -33,7 +32,6 @@ export default async function BlogsPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
       <BlogsHeader />
       <Marquee />
       <BlogsClient posts={posts} categories={categories} />

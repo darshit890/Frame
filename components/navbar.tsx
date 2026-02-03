@@ -1,12 +1,17 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navigation() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Hide Navbar on Studio page
+  if (pathname?.startsWith('/studio')) return null;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,11 +33,15 @@ export default function Navigation() {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled && !isMobileMenuOpen ? 'bg-background/90 backdrop-blur-md' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex justify-between items-center py-5">
+    <nav 
+      className={`fixed z-50 transition-all duration-500 ease-in-out ${
+        isScrolled && !isMobileMenuOpen 
+          ? 'top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-[85%] lg:w-[75%] max-w-5xl rounded-full border border-white/10 bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]' 
+          : 'top-0 left-1/2 -translate-x-1/2 w-full bg-transparent'
+      }`}
+    >
+      <div className={`${isScrolled ? 'px-6' : 'max-w-7xl mx-auto px-6'}`}>
+        <div className={`flex justify-between items-center transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -56,18 +65,35 @@ export default function Navigation() {
               { name: 'Projects', href: '/projects' },
               { name: 'Blogs', href: '/blogs' },
               { name: 'Contact Us', href: '/contact' },
-            ].map((item, index) => (
-              <motion.li
-                key={item.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Link href={item.href} className="hover:text-primary transition-colors">
-                  {item.name}
-                </Link>
-              </motion.li>
-            ))}
+            ].map((item, index) => {
+              const isActive = item.href === '/' 
+                ? pathname === '/' 
+                : item.href === '/blogs' 
+                  ? pathname.startsWith('/blog') || pathname.startsWith('/blogs')
+                  : pathname.startsWith(item.href);
+
+              return (
+                <li key={item.name}>
+                  <Link 
+                    href={item.href} 
+                    className={`relative px-3 py-1.5 rounded-full transition-colors duration-300 block ${
+                      isActive 
+                        ? "text-primary font-bold" 
+                        : "text-white hover:text-primary"
+                    }`}
+                  >
+                    {item.name}
+                    {isActive && (
+                      <motion.span
+                        layoutId="navbar-active-pill"
+                        className="absolute inset-0 bg-primary/20 rounded-full shadow-[0_0_20px_rgba(4,217,255,0.3)] -z-10"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           <motion.div 
@@ -121,22 +147,30 @@ export default function Navigation() {
                 { name: 'Projects', href: '/projects' },
                 { name: 'Blogs', href: '/blogs' },
                 { name: 'Contact Us', href: '/contact' },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + index * 0.1 }}
-                >
-                  <Link 
-                    href={item.href} 
-                    onClick={toggleMobileMenu} 
-                    className="text-2xl font-bold text-white hover:text-primary"
+              ].map((item, index) => {
+                const isActive = item.href === '/' 
+                  ? pathname === '/' 
+                  : item.href === '/blogs' 
+                    ? pathname.startsWith('/blog') || pathname.startsWith('/blogs')
+                    : pathname.startsWith(item.href);
+                
+                return (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + index * 0.1 }}
                   >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link 
+                      href={item.href} 
+                      onClick={toggleMobileMenu} 
+                      className={`text-2xl font-bold transition-colors ${isActive ? "text-primary" : "text-white hover:text-primary"}`}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                );
+              })}
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

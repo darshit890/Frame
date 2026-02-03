@@ -194,22 +194,6 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center shrink-0 text-primary">
-                   <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                   </svg>
-                </div>
-                <div>
-                  <p className="text-muted-foreground text-sm mb-1">Visit Us</p>
-                  <p className="text-lg font-bold">
-                    123 Creative Street,<br />
-                    Design City, DC 10101
-                  </p>
-                </div>
-              </div>
             </div>
 
             <div className="mt-12 pt-8 border-t border-border">
