@@ -19,7 +19,7 @@ const portfolioCategories: PortfolioCategory[] = [
     subtitle: "Digital Craftsmanship",
     description:
       "Cutting-edge applications, scalable architectures, and innovative solutions that transform businesses.",
-    pdfUrl: "/pdfs/software-portfolio.pdf",
+    pdfUrl: "/pdf/Frameonix-Web-Portfolio.pdf",
     stats: [
       { label: "Projects", value: "50+" },
       { label: "Technologies", value: "25+" },
@@ -286,14 +286,14 @@ interface PortfolioDownloadProps {
 }
 
 export default function PortfolioDownload({
-  mainPdfUrl = "/pdfs/full-portfolio.pdf",
+  mainPdfUrl = "/pdf/Frameonix-Web-Portfolio.pdf",
 }: PortfolioDownloadProps) {
   const [isMainHovered, setIsMainHovered] = useState(false);
 
   const handleMainDownload = () => {
     const link = document.createElement("a");
     link.href = mainPdfUrl;
-    link.download = "complete-portfolio.pdf";
+    link.download = "Frameonix-Web-Portfolio.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
