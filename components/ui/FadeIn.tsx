@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 
-export default function FadeIn({ children, delay = 0, className = '', direction = 'up', fullWidth = false }: { children: React.ReactNode, delay?: number, className?: string, direction?: 'up' | 'down' | 'left' | 'right', fullWidth?: boolean }) {
+export default function FadeIn({ children, delay = 0, className = '', direction = 'up', fullWidth = false, style }: { children: React.ReactNode, delay?: number, className?: string, direction?: 'up' | 'down' | 'left' | 'right', fullWidth?: boolean, style?: React.CSSProperties }) {
   const variants = {
     hidden: { 
       opacity: 0, 
@@ -23,6 +23,7 @@ export default function FadeIn({ children, delay = 0, className = '', direction 
       viewport={{ once: true, margin: "0px" }}
       variants={variants}
       className={`${className} ${fullWidth ? 'w-full' : ''}`}
+      style={style}
     >
       {children}
     </motion.div>

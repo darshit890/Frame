@@ -16,17 +16,61 @@ export const heroQuery = groq`*[_type == "hero"][0] {
 }`
 
 export const servicesQuery = groq`{
-  "header": *[_type == "servicesHeader"][0] {
-    headingLine1,
-    headingLine2,
-    description
-  },
-  "items": *[_type == "service"] | order(_createdAt asc) {
+  "items": *[_type == "service"] {
     _id,
     title,
     "image": image.asset->url,
     "alt": image.alt,
     href
+  },
+  "header": *[_type == "servicesHeader"][0]
+}`
+
+export const servicesPageQuery = groq`{
+  "page": *[_type == "servicesPage"][0] {
+    subheading,
+    heading,
+    column1[] {
+      _type,
+      title,
+      description,
+      icon,
+      "imageUrl": image.asset->url,
+      backgroundColor
+    },
+    column2[] {
+      _type,
+      title,
+      description,
+      icon,
+      "imageUrl": image.asset->url,
+      backgroundColor
+    },
+    column3[] {
+      _type,
+      title,
+      description,
+      icon,
+      "imageUrl": image.asset->url,
+      backgroundColor
+    },
+    marqueeItems,
+    featuredProjects[] {
+      title,
+      category,
+      "imageUrl": image.asset->url,
+      backgroundColor
+    }
+  },
+  "workProcess": *[_type == "workProcess"][0] {
+    subheading,
+    heading,
+    steps[] {
+      title,
+      description,
+      icon,
+      "imageUrl": image.asset->url
+    }
   }
 }`
 

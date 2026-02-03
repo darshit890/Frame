@@ -17,7 +17,7 @@ export const workProcessType = defineType({
       name: 'heading',
       title: 'Heading',
       type: 'string',
-      initialValue: 'Our Working Process',
+      initialValue: 'The best work happens when we build it together',
     }),
     defineField({
       name: 'steps',
@@ -41,7 +41,7 @@ export const workProcessType = defineType({
             }),
             defineField({
               name: 'icon',
-              title: 'Icon',
+              title: 'Icon (Optional - for simple view)',
               type: 'string',
               options: {
                 list: [
@@ -52,16 +52,24 @@ export const workProcessType = defineType({
               },
               initialValue: 'bulb',
             }),
+            defineField({
+                name: 'image',
+                title: 'Image (Optional - for expanded view)',
+                type: 'image',
+                options: { hotspot: true }
+            })
           ],
           preview: {
             select: {
               title: 'title',
               subtitle: 'description',
+              media: 'image'
             },
-            prepare({ title, subtitle }) {
+            prepare({ title, subtitle, media }) {
               return {
                 title: title || 'Step',
                 subtitle: subtitle,
+                media: media
               }
             }
           },

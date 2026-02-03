@@ -13,7 +13,7 @@ export default function Marquee({
     'Graphics Design',
     'Digital Marketing'
   ],
-  className = "bg-[#04d9ff] text-black"
+  className = "bg-primary text-black"
 }: { 
   items?: string[], 
   className?: string 

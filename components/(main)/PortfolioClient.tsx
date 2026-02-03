@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import FadeIn from '@/components/ui/FadeIn';
 import { StaggerContainer, StaggerItem } from '@/components/ui/Stagger';
+import BackgroundEffect from '@/components/ui/BackgroundEffect';
 
 interface Project {
   title?: string;
@@ -35,15 +36,16 @@ export default function PortfolioClient({
   }
 
   return (
-    <section id="projects" className="bg-[#111] text-white py-24 font-sans">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="projects" className="bg-background text-foreground py-24 font-sans relative overflow-hidden">
+      <BackgroundEffect />
+      <div className="max-w-7xl mx-auto px-6 relative">
         
         {/* Header */}
         <FadeIn className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
                <div className="w-6 h-[2px] bg-primary"></div>
-               <span className="text-gray-400 text-sm font-medium tracking-wide uppercase">
+               <span className="text-muted-foreground text-sm font-medium tracking-wide uppercase">
                  {subheading}
                </span>
             </div>
@@ -91,7 +93,7 @@ export default function PortfolioClient({
                 {project.tags && project.tags.map((tag, i) => (
                   <span 
                     key={i} 
-                    className="px-4 py-1.5 rounded-full text-xs font-medium text-gray-400 border border-white/10 bg-white/5"
+                    className="px-4 py-1.5 rounded-full text-xs font-medium text-muted-foreground border border-border bg-secondary"
                   >
                     {tag}
                   </span>
@@ -100,19 +102,19 @@ export default function PortfolioClient({
 
               {/* Description */}
               {project.description && (
-                <p className="mb-6 text-gray-400 text-sm line-clamp-3">
+                <p className="mb-6 text-muted-foreground text-sm line-clamp-3">
                   {project.description}
                 </p>
               )}
 
               {/* Title & Action */}
               <div className="flex justify-between items-end gap-4">
-                <h3 className="text-2xl font-bold leading-snug max-w-sm">
+                <h3 className="text-2xl font-bold leading-snug max-w-sm text-foreground">
                   {project.title}
                 </h3>
                 
                 {/* Link Button */}
-                <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-all bg-[#222] text-white group-hover:bg-primary group-hover:text-black group-hover:rotate-45">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-all bg-secondary text-foreground group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-45">
                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 19L19 5m0 0v14m0-14H5" />
                    </svg>

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { StaggerContainer, StaggerItem } from '@/components/ui/Stagger';
 import ScaleIn from '@/components/ui/ScaleIn';
+import BackgroundEffect from '../ui/BackgroundEffect';
 
 interface AboutClientProps {
   heading?: string;
@@ -34,8 +35,9 @@ export default function AboutClient({
   // If it comes from Sanity as a string, we might want to allow newlines.
   
   return (
-    <section className="bg-[#111] text-white py-24 font-sans relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-background text-foreground py-24 font-sans relative overflow-hidden">
+      <BackgroundEffect />
+      <div className="max-w-7xl mx-auto px-6 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left: Image Section */}
@@ -84,7 +86,7 @@ export default function AboutClient({
             {/* Header Label */}
             <StaggerItem className="flex items-center gap-3 mb-6">
                <div className="w-6 h-[2px] bg-primary"></div>
-               <span className="text-gray-400 text-sm font-medium tracking-wide uppercase">About Us</span>
+               <span className="text-muted-foreground text-sm font-medium tracking-wide uppercase">About Us</span>
             </StaggerItem>
 
             <StaggerItem>
@@ -94,7 +96,7 @@ export default function AboutClient({
             </StaggerItem>
 
             <StaggerItem>
-              <p className="text-gray-400 mb-8 leading-relaxed">
+              <p className="text-muted-foreground mb-8 leading-relaxed">
                 {description}
               </p>
             </StaggerItem>
@@ -109,7 +111,7 @@ export default function AboutClient({
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="font-medium text-gray-200">{item}</span>
+                    <span className="font-medium text-foreground">{item}</span>
                   </div>
                 ))}
               </StaggerItem>

@@ -7,17 +7,22 @@ import FadeIn from '@/components/ui/FadeIn';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Instagram } from 'lucide-react';
+import { useState } from 'react';
+import { toast } from 'sonner';
+
+import BackgroundEffect from '@/components/ui/BackgroundEffect';
 
 // Header Component
 const ContactHeader = () => {
   return (
-    <section className="bg-[#111] pt-32 lg:pt-40 pb-20 text-center font-sans">
+    <section className="relative overflow-hidden bg-background pt-32 lg:pt-40 pb-20 text-center font-sans">
+      <BackgroundEffect />
       <FadeIn>
-        <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">Contact Us</h1>
+        <h1 className="text-5xl lg:text-7xl font-bold text-foreground mb-6">Contact Us</h1>
         <div className="flex items-center justify-center gap-2 text-sm font-medium">
-          <Link href="/" className="text-white hover:text-[#04d9ff] transition-colors">Home</Link>
-          <span className="text-white/40">/</span>
-          <span className="text-[#04d9ff]">Contact Us</span>
+          <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link>
+          <span className="text-muted-foreground/40">/</span>
+          <span className="text-primary">Contact Us</span>
         </div>
       </FadeIn>
     </section>
@@ -46,7 +51,7 @@ const HireUsBadge = () => {
             </svg>
         </motion.div>
          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-14 h-14 rounded-full bg-[#04d9ff] flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
                  <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 7l-10 10M17 7H7M17 7v10" />
                 </svg>
@@ -58,6 +63,39 @@ const HireUsBadge = () => {
 
 // Main Contact Section
 const ContactContent = () => {
+  const [isPending, setIsPending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsPending(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Something went wrong');
+      }
+
+      toast.success(result.message);
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : 'Failed to send message');
+    } finally {
+      setIsPending(false);
+    }
+  };
+
   return (
     <section className="py-24 font-sans bg-white relative">
       <div className="max-w-7xl mx-auto px-6">
@@ -67,7 +105,7 @@ const ContactContent = () => {
             <div className="max-w-2xl">
                 <FadeIn>
                     <div className="flex items-center gap-3 mb-4">
-                       <div className="w-8 h-[2px] bg-[#04d9ff]"></div>
+                       <div className="w-8 h-[2px] bg-primary"></div>
                        <span className="text-black/60 text-sm font-bold uppercase tracking-wider">Contact Us</span>
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-bold text-black leading-tight">
@@ -88,20 +126,26 @@ const ContactContent = () => {
             {/* Left: Form (7 cols) */}
             <div className="lg:col-span-7">
                 <FadeIn delay={0.2}>
-                    <form className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="space-y-2">
                                 <input 
+                                  name="firstName"
                                   type="text" 
                                   placeholder="First Name *" 
-                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                                  required
+                                  disabled={isPending}
+                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
                                 />
                             </div>
                             <div className="space-y-2">
                                 <input 
+                                  name="lastName"
                                   type="text" 
                                   placeholder="Last Name *" 
-                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                                  required
+                                  disabled={isPending}
+                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
                                 />
                             </div>
                         </div>
@@ -109,45 +153,65 @@ const ContactContent = () => {
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="space-y-2">
                                 <input 
+                                  name="email"
                                   type="email" 
                                   placeholder="Email *" 
-                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                                  required
+                                  disabled={isPending}
+                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
                                 />
                             </div>
                             <div className="space-y-2">
                                 <input 
+                                  name="phone"
                                   type="tel" 
                                   placeholder="Phone Number *" 
-                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                                  required
+                                  disabled={isPending}
+                                  className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
                             <input 
+                              name="subject"
                               type="text" 
                               placeholder="Subject *" 
-                              className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                              required
+                              disabled={isPending}
+                              className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors disabled:opacity-50"
                             />
                         </div>
 
                         <div className="space-y-2">
                             <textarea 
+                              name="message"
                               rows={6}
                               placeholder="Message *" 
-                              className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors resize-none"
+                              required
+                              disabled={isPending}
+                              className="w-full bg-gray-100 border border-transparent rounded-2xl px-6 py-4 text-black placeholder-gray-500 focus:outline-none focus:border-primary transition-colors resize-none disabled:opacity-50"
                             ></textarea>
                         </div>
 
-                        <button className="flex items-center group mt-4">
+                        <button 
+                          type="submit" 
+                          disabled={isPending}
+                          className="flex items-center group mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
+                        >
                             <span className="bg-primary text-black px-6 py-3 font-medium text-base rounded-full hover:bg-primary-hover transition-colors relative z-10" style={{ fontFamily: 'cursive' }}>
-                              Send Message
+                              {isPending ? 'Sending...' : 'Send Message'}
                             </span>
                             <span className="bg-white py-1 pl-8 pr-1 flex items-center justify-center rounded-r-full -ml-5 relative z-0 shadow-md">
                               <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-                                 <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                 </svg>
+                                 {isPending ? (
+                                   <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+                                 ) : (
+                                   <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                   </svg>
+                                 )}
                               </div>
                             </span>
                         </button>
@@ -157,7 +221,7 @@ const ContactContent = () => {
 
             {/* Right: Info Card (5 cols) */}
             <div className="lg:col-span-5">
-                <FadeIn delay={0.4} className="bg-[#04d9ff] rounded-3xl p-8 lg:p-12 text-black space-y-10">
+                <FadeIn delay={0.4} className="bg-primary rounded-3xl p-8 lg:p-12 text-black space-y-10">
                     {/* Address */}
                     <div>
                         <h3 className="text-xl font-bold mb-4">Address</h3>
@@ -213,35 +277,12 @@ const ContactContent = () => {
   );
 };
 
-// Map Section
-const MapSection = () => {
-    return (
-        <section className="h-[400px] w-full bg-gray-100 relative overflow-hidden">
-             {/* Placeholder for Map Image/Integration */}
-             <div className="absolute inset-0 bg-[url('/map-pattern.png')] bg-cover bg-center opacity-50"></div>
-             
-             {/* Since we don't have the map image, I'll create a pattern background to simulate it */}
-             <div className="absolute inset-0 opacity-10" style={{
-                 backgroundImage: 'radial-gradient(#000 1px, transparent 1px)',
-                 backgroundSize: '20px 20px'
-             }}></div>
-             
-             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                 <div className="bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-bold text-gray-500 border border-gray-200 shadow-sm">
-                     Map View Placeholder
-                 </div>
-             </div>
-        </section>
-    )
-}
-
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
       <ContactHeader />
       <ContactContent />
-      <MapSection />
       <Marquee />
       <Footer />
     </main>

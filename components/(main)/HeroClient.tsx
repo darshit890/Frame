@@ -5,6 +5,7 @@ import Link from 'next/link';
 import FadeIn from '@/components/ui/FadeIn';
 import { StaggerContainer, StaggerItem } from '@/components/ui/Stagger';
 import ScaleIn from '@/components/ui/ScaleIn';
+import BackgroundEffect from '../ui/BackgroundEffect';
 
 interface HeroClientProps {
   badgeText?: string;
@@ -36,7 +37,8 @@ const HeroClient = ({
   scrollingText
 }: HeroClientProps) => {
   return (
-    <section className="relative min-h-screen bg-[#111] pt-32 pb-20 overflow-hidden font-sans">
+    <section className="relative min-h-screen bg-background pt-32 pb-20 overflow-hidden font-sans">
+      <BackgroundEffect />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Top Section: Heading & Hire Us */}
@@ -46,14 +48,14 @@ const HeroClient = ({
                 <StaggerItem>
                   <div className="flex items-center gap-4">
                       <div className="w-12 h-[2px] bg-primary"></div>
-                      <span className="text-white/80 text-sm tracking-widest uppercase font-medium">
+                      <span className="text-foreground/80 text-sm tracking-widest uppercase font-medium">
                           {badgeText}
                       </span>
                   </div>
                 </StaggerItem>
                 {/* Heading */}
                 <StaggerItem>
-                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] text-white tracking-tight">
+                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] text-foreground tracking-tight">
                       {headingLine1} <br />
                       <span className="text-primary">{headingLine2}</span>
                   </h1>
@@ -67,14 +69,14 @@ const HeroClient = ({
                         <defs>
                             <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
                         </defs>
-                        <text fill="#04d9ff" fontSize="11" fontWeight="bold" letterSpacing="3">
+                        <text fill="var(--primary)" fontSize="11" fontWeight="bold" letterSpacing="3">
                             <textPath href="#circlePath" startOffset="0%">
                                 HIRE US • HIRE US • HIRE US •
                             </textPath>
                         </text>
                     </svg>
                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center transform -rotate-45 group hover:rotate-0 transition-transform duration-500 cursor-pointer shadow-[0_8px_24px_rgba(196,255,0,0.3)]">
+                        <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center transform -rotate-45 group hover:rotate-0 transition-transform duration-500 cursor-pointer shadow-[0_8px_24px_rgba(4,217,255,0.3)]">
                              <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 7l-10 10M17 7H7M17 7v10" />
                             </svg>
@@ -90,7 +92,7 @@ const HeroClient = ({
             <StaggerContainer className="lg:col-span-7 flex flex-wrap gap-3">
                 {tags?.map((tag, index) => (
                      <StaggerItem key={`${tag}-${index}`}>
-                       <span className="block px-6 py-3 border-y-[0.2px] border-x-3 border-white/50 text-white text-sm rounded-full hover:border-primary hover:text-primary transition-all duration-300 cursor-default">
+                       <span className="block px-6 py-3 border-y-[0.2px] border-x-3 border-foreground/50 text-foreground text-sm rounded-full hover:border-primary hover:text-primary transition-all duration-300 cursor-default">
                           {tag}
                        </span>
                      </StaggerItem>
@@ -102,11 +104,11 @@ const HeroClient = ({
                 {/* Vertical Divider Line with Glow */}
                 <div className="hidden lg:block h-16 w-[3px] shrink-0">
                    <svg className="w-full h-full overflow-visible" viewBox="0 0 3 64" preserveAspectRatio="none">
-                      <path d="M1.5 0 L3 32 L1.5 64 L0 32 Z" fill="#04d9ff" className="drop-shadow-[0_0_5px_#04d9ff]" />
+                      <path d="M1.5 0 L3 32 L1.5 64 L0 32 Z" fill="var(--primary)" className="drop-shadow-[0_0_5px_var(--primary)]" />
                    </svg>
                 </div>
                 
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                     {description}
                 </p>
             </FadeIn>

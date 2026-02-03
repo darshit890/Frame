@@ -49,7 +49,7 @@ export default function BlogSidebar({
       {showSearch && setSearchQuery && (
         <div>
           <div className="flex items-center gap-3 mb-6">
-             <div className="w-1 h-6 bg-[#04d9ff]"></div>
+             <div className="w-1 h-6 bg-primary"></div>
              <h3 className="text-xl font-bold text-black">Search</h3>
           </div>
           <div className="relative">
@@ -58,7 +58,7 @@ export default function BlogSidebar({
               placeholder="Search" 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-gray-50 rounded-lg py-4 pl-6 pr-12 text-sm focus:outline-none focus:ring-1 focus:ring-[#04d9ff] text-black placeholder-gray-400"
+              className="w-full bg-gray-50 rounded-lg py-4 pl-6 pr-12 text-sm focus:outline-none focus:ring-1 focus:ring-primary text-black placeholder-gray-400"
             />
             <button className="absolute right-4 top-4 text-gray-400">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -73,7 +73,7 @@ export default function BlogSidebar({
       {showCategories && setSelectedCategory && (
         <div>
           <div className="flex items-center gap-3 mb-6">
-             <div className="w-1 h-6 bg-[#04d9ff]"></div>
+             <div className="w-1 h-6 bg-primary"></div>
              <h3 className="text-xl font-bold text-black">Popular Categories</h3>
           </div>
           <div className="space-y-3">
@@ -81,8 +81,8 @@ export default function BlogSidebar({
               onClick={() => setSelectedCategory(null)}
               className={`block w-full text-left px-6 py-3 rounded-lg text-sm transition-colors ${
                 selectedCategory === null 
-                  ? 'bg-[#04d9ff] text-black' 
-                  : 'bg-gray-50 text-gray-600 hover:bg-[#04d9ff] hover:text-black'
+                  ? 'bg-primary text-black' 
+                  : 'bg-gray-50 text-gray-600 hover:bg-primary hover:text-black'
               }`}
             >
               All Categories
@@ -93,8 +93,8 @@ export default function BlogSidebar({
                 onClick={() => setSelectedCategory(cat.title)}
                 className={`block w-full text-left px-6 py-3 rounded-lg text-sm transition-colors ${
                   selectedCategory === cat.title 
-                    ? 'bg-[#04d9ff] text-black' 
-                    : 'bg-gray-50 text-gray-600 hover:bg-[#04d9ff] hover:text-black'
+                    ? 'bg-primary text-black' 
+                    : 'bg-gray-50 text-gray-600 hover:bg-primary hover:text-black'
                 }`}
               >
                 {cat.title}
@@ -107,7 +107,7 @@ export default function BlogSidebar({
       {/* Recent Post */}
       <div>
         <div className="flex items-center gap-3 mb-6">
-           <div className="w-1 h-6 bg-[#04d9ff]"></div>
+           <div className="w-1 h-6 bg-primary"></div>
            <h3 className="text-xl font-bold text-black">Recent Posts</h3>
         </div>
         <div className="space-y-6">
@@ -126,7 +126,7 @@ export default function BlogSidebar({
                  )}
               </div>
               <div>
-                <h4 className="font-bold text-black text-sm mb-2 leading-snug group-hover:text-[#04d9ff] transition-colors line-clamp-2">
+                <h4 className="font-bold text-black text-sm mb-2 leading-snug group-hover:text-primary transition-colors line-clamp-2">
                   {post.title}
                 </h4>
                 <span className="text-xs text-gray-400">
@@ -149,9 +149,9 @@ export default function BlogSidebar({
         <div className="relative z-10 space-y-4">
           <p className="text-white text-sm font-medium">Get A Quote</p>
           <h3 className="text-2xl font-bold text-white">
-            Looking For <span className="text-[#04d9ff]">Trusted Digital Agency?</span>
+            Looking For <span className="text-primary">Trusted Digital Agency?</span>
           </h3>
-          <Link href="/contact" className="bg-[#04d9ff] text-black px-8 py-3 rounded-full font-bold text-sm hover:bg-[#00b8e6] transition-colors inline-block mt-4">
+          <Link href="/contact" className="bg-primary text-black px-8 py-3 rounded-full font-bold text-sm hover:bg-primary-hover transition-colors inline-block mt-4">
             Hire Us Now
           </Link>
         </div>

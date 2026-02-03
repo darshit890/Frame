@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { PortableText, PortableTextComponents } from 'next-sanity';
 import BlogSidebar from '@/components/(main)/BlogSidebar';
+import BackgroundEffect from '@/components/ui/BackgroundEffect';
 
 export const revalidate = 60;
 
@@ -41,15 +42,16 @@ const ptComponents: PortableTextComponents = {
 // Header Component
 const BlogHeader = ({ title }: { title: string }) => {
   return (
-    <section className="bg-[#111] pt-32 lg:pt-40 pb-20 text-center font-sans">
+    <section className="bg-background pt-32 lg:pt-40 pb-20 text-center font-sans relative overflow-hidden">
+      <BackgroundEffect />
       <FadeIn>
         <div className="max-w-4xl mx-auto px-6">
-          <h1 className="text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">{title}</h1>
+          <h1 className="text-3xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">{title}</h1>
           <div className="flex items-center justify-center gap-2 text-sm font-medium flex-wrap">
-            <Link href="/" className="text-white hover:text-primary transition-colors">Home</Link>
-            <span className="text-white/40">/</span>
-            <Link href="/blogs" className="text-white hover:text-primary transition-colors">Blogs</Link>
-            <span className="text-white/40">/</span>
+            <Link href="/" className="text-foreground hover:text-primary transition-colors">Home</Link>
+            <span className="text-muted-foreground">/</span>
+            <Link href="/blogs" className="text-foreground hover:text-primary transition-colors">Blogs</Link>
+            <span className="text-muted-foreground">/</span>
             <span className="text-primary truncate max-w-[200px]">{title}</span>
           </div>
         </div>

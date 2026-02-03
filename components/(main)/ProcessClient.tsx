@@ -94,7 +94,7 @@ export default function ProcessClient({
                    </div>
                    
                    {/* Step Badge */}
-                   <div className="absolute -bottom-3 bg-[#111] text-white px-4 py-1 rounded-full text-xs font-bold shadow-md">
+                   <div className="absolute -bottom-3 bg-background text-foreground px-4 py-1 rounded-full text-xs font-bold shadow-md">
                       Step {index + 1}
                    </div>
                 </div>

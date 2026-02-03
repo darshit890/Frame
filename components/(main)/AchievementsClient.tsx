@@ -119,7 +119,7 @@ export default function AchievementsClient({
                </div> 
                
                {/* Timeline dot */} 
-               <div className="flex absolute left-[6px] md:left-[140px] top-1 md:top-0 -translate-x-1/2 w-3 h-3 rounded-full bg-[#04d9ff] border-2 border-[#04d9ff] group-hover:scale-125 transition-all duration-300" /> 
+               <div className="flex absolute left-[6px] md:left-[140px] top-1 md:top-0 -translate-x-1/2 w-3 h-3 rounded-full bg-primary border-2 border-primary group-hover:scale-125 transition-all duration-300" /> 
                 
                 {/* Content Card */} 
                 <div className="flex-1 md:pl-12"> 
@@ -135,7 +135,7 @@ export default function AchievementsClient({
                       </div> 
                       
                       {/* Stats */} 
-                      <div className="shrink-0 flex items-center gap-3 lg:flex-col lg:items-center lg:gap-1 bg-[#04d9ff] rounded-lg px-4 py-3 lg:px-5 lg:py-4"> 
+                      <div className="shrink-0 flex items-center gap-3 lg:flex-col lg:items-center lg:gap-1 bg-primary rounded-lg px-4 py-3 lg:px-5 lg:py-4"> 
                         <span className="text-3xl lg:text-4xl font-bold text-black"> 
                           {item.stats} 
                         </span> 

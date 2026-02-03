@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { PortableText, PortableTextComponents } from 'next-sanity';
+import BackgroundEffect from '@/components/ui/BackgroundEffect';
 
 export const revalidate = 60;
 
@@ -19,7 +20,7 @@ const ptComponents: PortableTextComponents = {
     h3: ({ children }) => <h3 className="text-2xl font-bold text-black mt-6 mb-3">{children}</h3>,
     h4: ({ children }) => <h4 className="text-xl font-bold text-black mt-6 mb-3">{children}</h4>,
     normal: ({ children }) => <p className="text-gray-600 mb-4 leading-relaxed">{children}</p>,
-    blockquote: ({ children }) => <blockquote className="border-l-4 border-[#04d9ff] pl-4 italic text-gray-700 my-6">{children}</blockquote>,
+    blockquote: ({ children }) => <blockquote className="border-l-4 border-primary pl-4 italic text-gray-700 my-6">{children}</blockquote>,
   },
   list: {
     bullet: ({ children }) => <ul className="list-disc pl-5 mb-4 text-gray-600 space-y-2">{children}</ul>,
@@ -29,7 +30,7 @@ const ptComponents: PortableTextComponents = {
     link: ({ children, value }) => {
       const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;
       return (
-        <a href={value.href} rel={rel} className="text-[#04d9ff] hover:underline font-medium">
+        <a href={value.href} rel={rel} className="text-primary hover:underline font-medium">
           {children}
         </a>
       );
@@ -40,16 +41,17 @@ const ptComponents: PortableTextComponents = {
 // Header Component
 const ProjectHeader = ({ title, category }: { title: string, category?: string }) => {
   return (
-    <section className="bg-[#111] pt-32 lg:pt-40 pb-20 text-center font-sans">
+    <section className="bg-background pt-32 lg:pt-40 pb-20 text-center font-sans relative overflow-hidden">
+      <BackgroundEffect />
       <FadeIn>
         <div className="max-w-4xl mx-auto px-6">
-          <h1 className="text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">{title}</h1>
+          <h1 className="text-3xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">{title}</h1>
           <div className="flex items-center justify-center gap-2 text-sm font-medium flex-wrap">
-            <Link href="/" className="text-white hover:text-[#04d9ff] transition-colors">Home</Link>
-            <span className="text-white/40">/</span>
-            <Link href="/projects" className="text-white hover:text-[#04d9ff] transition-colors">Projects</Link>
-            <span className="text-white/40">/</span>
-            <span className="text-[#04d9ff] truncate max-w-[200px]">{title}</span>
+            <Link href="/" className="text-foreground hover:text-primary transition-colors">Home</Link>
+            <span className="text-muted-foreground">/</span>
+            <Link href="/projects" className="text-foreground hover:text-primary transition-colors">Projects</Link>
+            <span className="text-muted-foreground">/</span>
+            <span className="text-primary truncate max-w-[200px]">{title}</span>
           </div>
         </div>
       </FadeIn>
@@ -128,7 +130,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                          href={project.link} 
                          target="_blank" 
                          rel="noopener noreferrer"
-                         className="inline-block w-full text-center bg-[#04d9ff] text-black font-bold py-3 rounded-full hover:bg-[#00b8e6] transition-colors"
+                         className="inline-block w-full text-center bg-primary text-black font-bold py-3 rounded-full hover:bg-primary/90 transition-colors"
                        >
                          Visit Live Site
                        </a>
@@ -146,7 +148,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   </p>
                 )}
                 
-                <div className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-[#04d9ff] prose-img:rounded-2xl">
+                <div className="prose prose-lg max-w-none prose-headings:font-bold prose-a:text-primary prose-img:rounded-2xl">
                   {project.body ? (
                     <PortableText value={project.body} components={ptComponents} />
                   ) : (
