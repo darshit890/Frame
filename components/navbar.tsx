@@ -134,56 +134,81 @@ export default function Navigation() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 md:hidden"
+            initial={{ opacity: 0, y: '-100%' }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: '-100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-black z-40 md:hidden flex flex-col"
           >
-            <div className="flex flex-col items-center justify-center h-full space-y-8">
-              {[
-                { name: 'Home', href: '/' },
-                { name: 'Services', href: '/services' },
-                { name: 'Projects', href: '/projects' },
-                { name: 'Blogs', href: '/blogs' },
-                { name: 'Contact Us', href: '/contact' },
-              ].map((item, index) => {
-                const isActive = item.href === '/' 
-                  ? pathname === '/' 
-                  : item.href === '/blogs' 
-                    ? pathname.startsWith('/blog') || pathname.startsWith('/blogs')
-                    : pathname.startsWith(item.href);
-                
-                return (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 + index * 0.1 }}
-                  >
-                    <Link 
-                      href={item.href} 
-                      onClick={toggleMobileMenu} 
-                      className={`text-2xl font-bold transition-colors ${isActive ? "text-primary" : "text-white hover:text-primary"}`}
+             {/* Background Effects */}
+             <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
+             <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+            <div className="flex flex-col justify-center h-full px-8 relative z-10">
+              <div className="space-y-6">
+                {[
+                  { name: 'Home', href: '/', number: '01' },
+                  { name: 'Services', href: '/services', number: '02' },
+                  { name: 'Projects', href: '/projects', number: '03' },
+                  { name: 'Blogs', href: '/blogs', number: '04' },
+                  { name: 'Contact Us', href: '/contact', number: '05' },
+                ].map((item, index) => {
+                  const isActive = item.href === '/' 
+                    ? pathname === '/' 
+                    : item.href === '/blogs' 
+                      ? pathname.startsWith('/blog') || pathname.startsWith('/blogs')
+                      : pathname.startsWith(item.href);
+                  
+                  return (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + index * 0.1 }}
                     >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                );
-              })}
+                      <Link 
+                        href={item.href} 
+                        onClick={toggleMobileMenu} 
+                        className="group flex items-center gap-4"
+                      >
+                        <span className={`text-sm font-mono ${isActive ? "text-primary" : "text-white/40 group-hover:text-primary transition-colors"}`}>
+                          {item.number}
+                        </span>
+                        <span className={`text-4xl sm:text-5xl font-bold uppercase tracking-tight transition-all duration-300 ${
+                          isActive 
+                            ? "text-white scale-105 origin-left" 
+                            : "text-white/60 hover:text-white hover:pl-2"
+                        }`}>
+                          {item.name}
+                        </span>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
+                transition={{ delay: 0.6 }}
+                className="mt-12 pt-8 border-t border-white/10"
               >
-                <Link 
-                  href="/contact" 
-                  onClick={toggleMobileMenu}
-                  className="bg-primary text-black px-8 py-3 rounded-full font-bold text-lg hover:bg-primary-hover transition-colors mt-8 inline-block"
-                >
-                  Let&apos;s Talk
-                </Link>
+                <div className="flex flex-col gap-4">
+                  <h4 className="text-white/40 text-sm font-mono uppercase">Get in touch</h4>
+                  <a href="mailto:hello@digitalagency.com" className="text-xl text-white font-medium hover:text-primary transition-colors">
+                    hello@digitalagency.com
+                  </a>
+                  <Link 
+                    href="/contact" 
+                    onClick={toggleMobileMenu}
+                    className="inline-flex items-center gap-2 text-primary font-bold hover:translate-x-2 transition-transform"
+                  >
+                    Start a Project
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
               </motion.div>
             </div>
           </motion.div>
